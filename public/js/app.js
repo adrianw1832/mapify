@@ -28,6 +28,6 @@ $(document).ready(function() {
 
   //Testing
   drawWorldMap();
-  // plotTweets();
+  plotTweets();
 
 });
