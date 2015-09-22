@@ -23,23 +23,25 @@ router.get('/', function (req, res) {
 var Twit = require('twit');
 
 var T = new Twit({
-    consumer_key:         process.env.TWITTER_API_KEY
-  , consumer_secret:      process.env.TWITTER_API_SECRET
-  , access_token:         process.env.TWITTER_ACCESS_TOKEN
-  , access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET
+  consumer_key:         process.env.TWITTER_API_KEY,
+  consumer_secret:      process.env.TWITTER_API_SECRET,
+  access_token:         process.env.TWITTER_ACCESS_TOKEN,
+  access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-// T.get('search/tweets', { q: 'banana since:2011-11-11', count: 100 }, function(err, data, response) {
-//   console.log(data);
+// T.get('search/tweets', { q: 'obama since:2015-09-15', count: 100 }, function(err, data, response) {
+//   console.log(data.statuses.length);
 // });
 
-var world = ['-180', '-90', '180', '90']
+var world = ['-180', '-90', '180', '90'];
 var stream = T.stream('statuses/filter', {
-  locations: world
+  locations: world,
+  language: 'en'
 });
-
+// var counter = 0;
 stream.on('tweet', function (tweet) {
   if (tweet.geo !== null) {
+    // counter++;
     console.log(tweet);
   }
 });
