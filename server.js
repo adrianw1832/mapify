@@ -74,8 +74,22 @@ var T = new Twit({
 //   }
 // });
 
-//* Show saved items in MongoDB *//
-Tweet.find(function(err,tweets){
+//*BIG-Coordinates Array*//
+var allCoordinates = [];
+Tweet.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
   if(err) return console.error(err);
-  console.log(tweets);
-})
+  for(var i=0; i<coords.length; i++){
+    allCoordinates.push(coords[i].coordinates);
+  }
+});
+console.log(allCoordinates);
+
+
+
+
+
+//* Show saved items in MongoDB *//
+// Tweet.find(function(err,tweets){
+//   if(err) return console.error(err);
+//   console.log(tweets.coordinates[0]);
+// })
