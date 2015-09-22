@@ -26,18 +26,18 @@ http.listen(3000, function(){
 });
 // });
 
-// var world = ['-180', '-90', '180', '90'];
-// var stream = T.stream('statuses/filter', {
-//   locations: world,
-//   language: 'en'
-// });
-// // var counter = 0;
-// stream.on('tweet', function (tweet) {
-//   if (tweet.geo !== null) {
-//     // counter++;
-//     console.log(tweet);
-//   }
-// });
+var world = ['-180', '-90', '180', '90'];
+var stream = T.stream('statuses/filter', {
+  locations: world,
+  language: 'en'
+});
+// var counter = 0;
+stream.on('tweet', function (tweet) {
+  if (tweet.geo !== null) {
+    // counter++;
+    console.log(tweet.coordinates.coordinates);
+  }
+});
 
 // Singapore
 //   geo: { type: 'Point', coordinates: [ 1.314682, 103.893371 ] },

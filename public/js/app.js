@@ -17,6 +17,7 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight)
   };
 
+  // Untested Feature Test
   function plotTweets() {
     map.plotCoords(104, 1);
     map.plotCoords(-102, 23);
@@ -27,6 +28,6 @@ $(document).ready(function() {
 
   //Testing
   drawWorldMap();
-  plotTweets();
+  // plotTweets();
 
 });
