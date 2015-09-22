@@ -78,11 +78,15 @@ var T = new Twit({
 var allCoordinates = [];
 Tweet.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
   if(err) return console.error(err);
-  for(var i=0; i<coords.length; i++){
+  appendCoords(coords);
+});
+
+function appendCoords(coords){
+  for (var i = 0; i < coords.length; i++) {
     allCoordinates.push(coords[i].coordinates);
   }
-});
-console.log(allCoordinates);
+  console.log(allCoordinates);
+}
 
 
 
