@@ -1,3 +1,5 @@
+var mapClass = require('../public/js/map.js');
+
 describe('Map', function() {
 
   var map;
@@ -9,7 +11,7 @@ describe('Map', function() {
   };
 
   beforeEach(function() {
-    map = new Map(scalingFactor, mapContext);
+    map = new mapClass(scalingFactor, mapContext);
   });
 
   it('plots coordinates on the canvas accurately', function() {

@@ -11,3 +11,5 @@ Map.prototype.plotCoords = function(longitude, latitude) {
   this.mapContext.fillStyle = "#000000"
   this.mapContext.fill();
 };
+
+module.exports = Map;
