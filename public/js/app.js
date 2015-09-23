@@ -25,6 +25,7 @@ $(document).ready(function() {
     map.plotCoords(-35, -8);
     map.plotCoords(110, -8);
     map.plotCoords(-97, 35);
+    $('body').append('<h1>Potato</h1>')
   };
 
   $('.plotTweets').click(function() {
