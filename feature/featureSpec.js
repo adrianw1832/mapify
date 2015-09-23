@@ -10,7 +10,7 @@ describe('Mapify App', function() {
   });
 
   it('should convert be the same image', function() {
-    $(".mapCanvas")
+    $(".mapCanvas").getContext('2d');
   });
 
 
