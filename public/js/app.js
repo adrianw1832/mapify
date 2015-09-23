@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var mapCanvas = $('.mapCanvas')[0];
+  var mapCanvas = document.getElementsByTagName("canvas")[0];
   var mapContext = mapCanvas.getContext('2d');
   var baseWidth = 360;
   var baseHeight = 180;
@@ -10,12 +10,11 @@ $(document).ready(function() {
   var map = new Map(scalingFactor, mapContext);
   var socket = io();
 
-  //Untested Feature Test
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
     mapCanvas.width = mapWidth;
-    mapContext.fillStyle = "#BEB9FF"
-    mapContext.fillRect(0, 0, mapWidth, mapHeight)
+    mapContext.fillStyle = "#BEB9FF";
+    mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
   // Untested Feature Test
@@ -25,22 +24,29 @@ $(document).ready(function() {
     map.plotCoords(-35, -8);
     map.plotCoords(110, -8);
     map.plotCoords(-97, 35);
-    $('body').append('<h1>Potato</h1>')
+    $('body').append('<h1 class="test">Potato</h1>')
   };
 
   $('.plotTweets').click(function() {
     plotTweets();
   });
 
-  socket.on('coordinates', function(coordinates) {
-    for (var i = 0; i < coordinates.length; i++) {
-      map.plotCoords(coordinates[i][0], coordinates[i][1]);
-    }
-  });
-
+  // PRINTS COORDINATES FROM THE DATABASE
+  // socket.on('coordinates', function(coordinates) {
+  //   for (var i = 0; i < coordinates.length; i++) {
+  //     map.plotCoords(coordinates[i][0], coordinates[i][1]);
+  //   }
+  // });
 
   //Testing
   drawMapBackground();
+
+  // FOR TESTING IMAGES GETTING BASE64
+  // setTimeout(function() {
+  //   var dataURL = mapCanvas.toDataURL();
+  //   console.log(dataURL);
+  // }, 2000);
+
 
 
 });
