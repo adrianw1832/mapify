@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 //* MONGO DB Connection with mongoose * //
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/mapifyTest');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -18,6 +18,7 @@ db.once('open', function (callback) {
 
 //*TWEET SCHEMA AND MODEL FOR MONGO *//
 var tweetSchema = mongoose.Schema({
+  createdAt:    Date,
   tweetID:      Number,
   coordinates:  Array,
   text:         String
@@ -56,6 +57,7 @@ var T = new Twit({
 // stream.on('tweet', function (tweet) {
 //   if (tweet.geo !== null) {
 //     var newTweet = new Tweet({
+//       createdAt:    tweet.created_at,
 //       tweetID:      tweet.id,
 //       coordinates:  tweet.coordinates.coordinates,
 //       text:         tweet.text
@@ -63,28 +65,29 @@ var T = new Twit({
 //     newTweet.save(function(err, newTweet){
 //       if(err) return console.error(err);
 //     })
-//     // console.log(tweet.coordinates.coordinates);
+//     // console.log(tweet);
 //   }
 // });
 
 //*BIG-Coordinates Array*//
-var allCoordinates = [];
-Tweet.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
-  if(err) return console.error(err);
-  appendCoords(coords);
-});
+// var allCoordinates = [];
+// Tweet.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
+//   if(err) return console.error(err);
+//   appendCoords(coords);
+// });
 
-function appendCoords(coords){
-  for (var i = 0; i < coords.length; i++) {
-    allCoordinates.push(coords[i].coordinates);
-  }
-  console.log(allCoordinates);
-}
-
+// function appendCoords(coords){
+//   for (var i = 0; i < coords.length; i++) {
+//     allCoordinates.push(coords[i].coordinates);
+//   }
+// }
+// setTimeout(function() {
+//   console.log(allCoordinates);
+// }, 1000);
 
 //* Show saved items in MongoDB *//
-// Tweet.find(function(err,tweets){
-//   if(err) return console.error(err);
-//   console.log(tweets.coordinates[0]);
-// })
+Tweet.find(function(err,tweets){
+  if(err) return console.error(err);
+  console.log(tweets);
+})
 
