@@ -4,6 +4,6 @@ exports.mockTweet = {
 }
 
 exports.mockTweetWithPunctuations = {
-  text: 'Nothing!@#$%^&*()_+  left',
+  text: "~><?/.,:'|Nothing!@#$%^&*()_+  left",
   coords: [-1, -103]
 }
