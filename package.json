@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-node --verbose spec"
+    "test": "jasmine-node spec"
   },
   "repository": {
     "type": "git",
