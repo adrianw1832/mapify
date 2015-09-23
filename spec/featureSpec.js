@@ -1,14 +1,14 @@
-// describe('Mapify App', function() {
+describe('Mapify App', function() {
 
-//   beforeEach(function() {
-//     jasmine.getFixtures().fixturesPath = './public';
-//     loadFixtures('index.html');
-//   });
+  beforeEach(function() {
+    jasmine.getFixtures().fixturesPath = './public';
+    loadFixtures('index.html');
+  });
 
-//   it('has a title', function() {
-//     expect("title").toContainText('Mapify')
-//   });
+  it('has a title', function() {
+    expect("title").toContainText('Mapify')
+  });
 
 
 
-// });
+});
