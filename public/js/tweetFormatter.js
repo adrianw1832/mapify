@@ -3,7 +3,7 @@ exports.format = function(tweet) {
   var formattedTweet = _formatTweet(strippedTweet);
   tweet.text = formattedTweet;
   return tweet;
-}
+};
 
 function _stripTweetOfPunctuations(text) {
   return text.replace(/[^a-zA-Z ]/g, '');
