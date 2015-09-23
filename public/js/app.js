@@ -8,7 +8,7 @@ $(document).ready(function() {
   var mapWidth = baseWidth * scalingFactor; // X-axis/Longitude: Value + 180
   var mapHeight = baseHeight * scalingFactor; // Y-axis/Latitude: 90 - Value
   var map = new Map(scalingFactor, mapContext);
-
+  var socket = io();
 
   //Untested Feature Test
   function drawWorldMap() {
@@ -30,6 +30,10 @@ $(document).ready(function() {
 
   $('.plotTweets').click(function() {
     plotTweets();
+  });
+
+  socket.on('coordinates', function(coordinates) {
+    console.log(coordinates)
   });
 
 

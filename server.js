@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var router = express.Router();
+var io = require('socket.io')(http);
 
 app.use(express.static('public'));
 var streamTweets = require('./public/js/tweetStream.js');
@@ -17,15 +18,11 @@ function queryCoords() {
     //App FUNCTION THAT PLOTS into MAP GOES HERE THEN PASSESS IN `allCoordinates` as ARGUMENT
   });
 }
-
 function appendCoords(coords){
   for (var i = 0; i < coords.length; i++) {
     allCoordinates.push(coords[i].coordinates);
   }
 }
-
-
-console.log(allCoordinates);
 
 
 //* RUN TO POPULATE MONGODB with TWEETS *//
@@ -41,6 +38,14 @@ queryCoords();
 router.get('/', function (req, res) {
   res.render('index');
 });
+
+io.on('connection', function(socket) {
+
+  setTimeout(function() {
+    io.emit('coordinates', allCoordinates);
+  }, 1000);
+
+})
 
 http.listen(3000, function() {
   console.log('listening on *:3000');
