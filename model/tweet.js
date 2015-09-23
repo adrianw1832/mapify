@@ -2,11 +2,11 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mapifyTest');
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-  //DO ANYTHING HERE//
-});
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function (callback) {
+//   //DO ANYTHING HERE//
+// });
 
 //*TWEET SCHEMA AND MODEL FOR MONGO *//
 var tweetSchema = mongoose.Schema({
