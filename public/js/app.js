@@ -9,6 +9,7 @@ $(document).ready(function() {
   var mapHeight = baseHeight * scalingFactor; // Y-axis/Latitude: 90 - Value
   var map = new Map(scalingFactor, mapContext);
 
+
   //Untested Feature Test
   function drawWorldMap() {
     mapCanvas.height = mapHeight;
@@ -26,8 +27,13 @@ $(document).ready(function() {
     map.plotCoords(-97, 35);
   };
 
+  $('.plotTweets').click(function() {
+    plotTweets();
+  });
+
+
   //Testing
   drawWorldMap();
-  plotTweets();
+
 
 });
