@@ -11,7 +11,7 @@ $(document).ready(function() {
   var socket = io();
 
   //Untested Feature Test
-  function drawWorldMap() {
+  function drawMapBackground() {
     mapCanvas.height = mapHeight;
     mapCanvas.width = mapWidth;
     mapContext.fillStyle = "#BEB9FF"
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 
   //Testing
-  drawWorldMap();
+  drawMapBackground();
 
 
 });

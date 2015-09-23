@@ -24,14 +24,14 @@ describe('Mapify App', function() {
   // THE PROBLEM IS THAT IT IS NOT CLICKING!!! move to root folder;
 
 
-  // it('plot tweets changes the photo', function() {
-  //   var mapContext = $(".mapCanvas")[0].getContext('2d');
-  //   var data = mapContext.getImageData(0, 0, mapWidth, mapHeight);
-  //   $('.plotTweets').click();
-  //   expect('h1').toContainText("Potato");
-  //   // var newData = mapContext.getImageData(0, 0, mapWidth, mapHeight);
-  //   // expect(data).toEqual(newData);
-  // });
+  it('plot tweets changes the photo', function() {
+    // var mapContext = $(".mapCanvas")[0].getContext('2d');
+    // var data = mapContext.getImageData(0, 0, mapWidth, mapHeight);
+    $('.plotTweets').click();
+    expect('h1').toContainText("Potato");
+    // var newData = mapContext.getImageData(0, 0, mapWidth, mapHeight);
+    // expect(data).toEqual(newData);
+  });
 
 
 

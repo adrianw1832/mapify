@@ -28,8 +28,6 @@ function queryCoords() {
 //* (RUN WHEN READY) TO PLOT COORDS INTO APP
 queryCoords();
 
-
-
 /*Get home page */
 router.get('/', function (req, res) {
   res.render('index');
