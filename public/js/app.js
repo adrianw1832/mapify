@@ -16,9 +16,6 @@ $(document).ready(function() {
     mapCanvas.width = mapWidth;
     mapContext.fillStyle = "#BEB9FF"
     mapContext.fillRect(0, 0, mapWidth, mapHeight)
-    var data = mapContext.getImageData(0, 0, mapWidth, mapHeight);
-    console.log(data);
-
   };
 
   // Untested Feature Test
@@ -30,11 +27,13 @@ $(document).ready(function() {
     map.plotCoords(-97, 35);
   };
 
-
+  $('.plotTweets').click(function() {
+    plotTweets();
+  });
 
 
   //Testing
   drawWorldMap();
-  plotTweets();
+
 
 });
