@@ -33,7 +33,9 @@ $(document).ready(function() {
   });
 
   socket.on('coordinates', function(coordinates) {
-    console.log(coordinates)
+    for (var i = 0; i < coordinates.length; i++) {
+      map.plotCoords(coordinates[i][0], coordinates[i][1]);
+    }
   });
 
 
