@@ -6,6 +6,10 @@ var router = express.Router();
 
 app.use(express.static('public'));
 
+http.listen(3000, function() {
+  console.log('listening on *:3000');
+});
+
 //* MONGO DB Connection with mongoose * //
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
@@ -68,18 +72,18 @@ var T = new Twit({
 // });
 
 //*BIG-Coordinates Array*//
-var allCoordinates = [];
-Tweet.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
-  if(err) return console.error(err);
-  appendCoords(coords);
-});
+// var allCoordinates = [];
+// Tweet.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
+//   if(err) return console.error(err);
+//   appendCoords(coords);
+// });
 
-function appendCoords(coords){
-  for (var i = 0; i < coords.length; i++) {
-    allCoordinates.push(coords[i].coordinates);
-  }
-  console.log(allCoordinates);
-}
+// function appendCoords(coords){
+//   for (var i = 0; i < coords.length; i++) {
+//     allCoordinates.push(coords[i].coordinates);
+//   }
+//   console.log(allCoordinates);
+// }
 
 
 //* Show saved items in MongoDB *//

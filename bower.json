@@ -1,0 +1,21 @@
+{
+  "name": "mapify",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adrianw1832/mapify",
+  "authors": [
+    "leon-wee <leonwee27@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jasmine-core": "jasmine#~2.3.4",
+    "jasmine-jquery": "~2.1.0",
+    "jquery": "~2.1.4"
+  }
+}
