@@ -7,21 +7,17 @@ var io = require('socket.io')(http);
 app.use(express.static('public'));
 var streamTweets = require('./public/js/tweetStream.js');
 // var plotCoords = require('./public/js/tweetsCoordinates.js');
-var TweetModel = require('./public/js/models/tweet.js');
+var tweetsDatabase = require('./model/tweet.js');
 
 var allCoordinates = [];
 
 function queryCoords() {
-  TweetModel.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
+  tweetsDatabase.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
     if(err) return console.error(err);
-    appendCoords(coords);
-    //App FUNCTION THAT PLOTS into MAP GOES HERE THEN PASSESS IN `allCoordinates` as ARGUMENT
+    for (var i = 0; i < coords.length; i++) {
+      allCoordinates.push(coords[i].coordinates);
+    }
   });
-}
-function appendCoords(coords){
-  for (var i = 0; i < coords.length; i++) {
-    allCoordinates.push(coords[i].coordinates);
-  }
 }
 
 
