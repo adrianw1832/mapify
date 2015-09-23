@@ -6,8 +6,13 @@ describe('Mapify App', function() {
   });
 
   it('has a title', function() {
-    expect("title").toContainText('Mapify')
+    expect("title").toContainText('Mapify');
   });
+
+  it('should convert be the same image', function() {
+    $(".mapCanvas")
+  });
+
 
 
 

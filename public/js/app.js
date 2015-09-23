@@ -9,12 +9,16 @@ $(document).ready(function() {
   var mapHeight = baseHeight * scalingFactor; // Y-axis/Latitude: 90 - Value
   var map = new Map(scalingFactor, mapContext);
 
+
   //Untested Feature Test
   function drawWorldMap() {
     mapCanvas.height = mapHeight;
     mapCanvas.width = mapWidth;
     mapContext.fillStyle = "#BEB9FF"
     mapContext.fillRect(0, 0, mapWidth, mapHeight)
+    var data = mapContext.getImageData(0, 0, mapWidth, mapHeight);
+    console.log(data);
+
   };
 
   // Untested Feature Test
@@ -25,6 +29,9 @@ $(document).ready(function() {
     map.plotCoords(110, -8);
     map.plotCoords(-97, 35);
   };
+
+
+
 
   //Testing
   drawWorldMap();
