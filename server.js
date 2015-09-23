@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 //* MONGO DB Connection with mongoose * //
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/mapifyTest');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -86,8 +86,8 @@ var T = new Twit({
 // }, 1000);
 
 //* Show saved items in MongoDB *//
-// Tweet.find(function(err,tweets){
-//   if(err) return console.error(err);
-//   console.log(tweets);
-// })
+Tweet.find(function(err,tweets){
+  if(err) return console.error(err);
+  console.log(tweets);
+})
 
