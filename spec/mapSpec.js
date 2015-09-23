@@ -1,24 +1,22 @@
 describe('Map', function() {
 
   var map;
-  var scalingFactor;
+  var scalingFactor = 3;
   var mapContext = {
-    arc: function() {}
+    arc: function() {},
+    beginPath: function() {},
+    fill: function() {}
   };
 
-  // beforeEach(function() {
-  //   mapDrawer = new mapDrawer(mapContext);
-  // });
+  beforeEach(function() {
+    map = new Map(scalingFactor, mapContext);
+  });
 
-
-  // it('into coordinates on the canvas', function() {
-  //   spyOn(mapContext, 'arc');
-  //   scalingFactor = 3;
-  //   map = new Map(scalingFactor, mapContext);
-  //   map.plotCoords(104, 1);
-  //   expect(mapContext.arc).toHaveBeenCalledWith(852, 267, 2, 0, Math.PI * 2, true);
-  // });
-
+  it('plots coordinates on the canvas accurately', function() {
+    spyOn(mapContext, 'arc');
+    map.plotCoords(104, 1);
+    expect(mapContext.arc).toHaveBeenCalledWith(852, 267, 2, 0, Math.PI * 2, true);
+  });
 
 
 });
