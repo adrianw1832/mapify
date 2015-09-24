@@ -45,6 +45,12 @@ io.on('connection', function(socket) {
   queryCoords();
 })
 
-http.listen(3000, function() {
-  console.log('listening on *:3000');
-});
+http.listen((process.env.PORT || 3000), function(){
+  process.env.PORT ?
+    console.log('listening on: ', process.env.PORT) :
+    console.log('listening on *:3000');
+})
+
+// http.listen(3000, function() {
+//   console.log('listening on *:3000');
+// });
