@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/adrianw1832/mapify#readme",
   "devDependencies": {
+    "bower": "^1.5.3",
     "chai": "^3.2.0",
     "chai-http": "^1.0.0",
     "jasmine-node": "^1.14.5",
