@@ -17,9 +17,7 @@ var tweetsDatabase = require('./models/tweet.js');
 // queryCoords();
 
 /*Get home page */
-router.get('/', function (req, res) {
-  res.render('index');
-});
+var routes = require('./routes/index.js');
 
 io.on('connection', function(socket) {
 
