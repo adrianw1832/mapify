@@ -17,17 +17,17 @@ $(document).ready(function() {
   };
 
   //**** FOR HEROKU DEVELOP-BRANCH DEPLOYMENT ******//
-  $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
-    for (var i = 0; i < tweets.length; i++) {
-      map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1]);
-    }
-  });
-  //****FOR LOCAL ENVIRONMENT******//
-  // $.getJSON('http://localhost:3000/tweets', function(tweets) {
+  // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
   //   for (var i = 0; i < tweets.length; i++) {
-  //     map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1]);
+  //     map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1]); //we pass in the argument for color
   //   }
   // });
+  //****FOR LOCAL ENVIRONMENT******//
+  $.getJSON('http://localhost:3000/tweets', function(tweets) {
+    for (var i = 0; i < tweets.length; i++) {
+      map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
+    }
+  });
 
   //Testing
   drawMapBackground();

@@ -26,7 +26,9 @@ var tweetSchema = mongoose.Schema({
   createdAt:    Date,
   tweetID:      Number,
   coordinates:  Array,
-  text:         String
+  text:         String,
+  sentimentValue: Number,
+  sentimentColour: String
 });
 
 //*TO USE TWEETSCHEMA - WE NEED TO CONVERT IT INTO A MODEL*//
