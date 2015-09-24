@@ -1,4 +1,6 @@
 //* MONGO DB Connection with mongoose * //
+export MONGOLAB_URI = "mongodb://heroku_j63z0ktq:211konangia06n9312mniu22bq@ds051933.mongolab.com:51933/heroku_j63z0ktq"
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mapifyTest');
 
