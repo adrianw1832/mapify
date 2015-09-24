@@ -17,8 +17,6 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
-
-
   // PRINTS COORDINATES FROM THE DATABASE
   // socket.on('coordinate', function(coordinate) {
   //   map.plotCoords(coordinate[0], coordinate[1]);
