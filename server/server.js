@@ -8,7 +8,7 @@ var streamTweets = require('../public/js/tweetStream.js');
 
 //* RUN TO POPULATE MONGODB with TWEETS *//
 //****************
-// streamTweets();
+streamTweets();
 
 /*Get home page */
 var routes = require('./routes/index.js');
