@@ -32,11 +32,22 @@ $(document).ready(function() {
   });
 
   // PRINTS COORDINATES FROM THE DATABASE
+  socket.on('coordinate', function(coordinate) {
+    map.plotCoords(coordinate[0], coordinate[1]);
+  });
+
+
+
   // socket.on('coordinates', function(coordinates) {
-  //   for (var i = 0; i < coordinates.length; i++) {
-  //     map.plotCoords(coordinates[i][0], coordinates[i][1]);
-  //   }
+  //   slowDown(coordinates.length - 1, coordinates);
+  //   // console.log(coordinates);
   // });
+
+  // function slowDown(index, coordinates) {
+  //   if (index < 0) return;
+  //   map.plotCoords(coordinates[index].coordinates[0], coordinates[index].coordinates[1]);
+  //   setTimeout(slowDown(index - 1, coordinates), 40000);
+  // };
 
   //Testing
   drawMapBackground();
