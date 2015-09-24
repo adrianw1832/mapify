@@ -4,9 +4,7 @@ describe('Mapify Feature', function() {
   browser.ignoreSynchronization = true;
 
   var mapCanvas = element(by.className('mapCanvas'));
-  var plotButton = element(by.className('plotTweets'));
-  var test = element(by.className('test'));
-
+  var testButton = element(by.className('testButton'));
 
   beforeEach(function() {
     browser.get('http://localhost:8080');
@@ -20,9 +18,16 @@ describe('Mapify Feature', function() {
     expect(mapCanvas.isPresent()).toBeTruthy();
   });
 
-  it('map background on canvas is accurate', function() {
+  it('draw map background on canvas is accurate', function() {
     browser.executeScript("return document.getElementsByTagName('canvas')[0].toDataURL()").then(function (result) {
         expect(result).toEqual(base64.mapBackground);
+    });
+  });
+
+  it('plots tweets correctly', function() {
+    testButton.click();
+    browser.executeScript("return document.getElementsByTagName('canvas')[0].toDataURL()").then(function (result) {
+        expect(result).toEqual(base64.plotBackground);
     });
   });
 

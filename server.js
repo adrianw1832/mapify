@@ -22,12 +22,12 @@ router.get('/', function (req, res) {
 });
 
 io.on('connection', function(socket) {
+
   function queryCoords() {
     tweetsDatabase.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
       if(err) return console.error(err);
-      // emitCoords(coords.length - 1, coords);
       sendCoords(coords);
-
+      // emitCoords(coords.length - 1, coords);
     });
   }
 
