@@ -9,24 +9,12 @@ var streamTweets = require('./public/js/tweetStream.js');
 // var plotCoords = require('./public/js/tweetsCoordinates.js');
 var tweetsDatabase = require('./model/tweet.js');
 
-var allCoordinates = [];
-
-function queryCoords() {
-  tweetsDatabase.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
-    if(err) return console.error(err);
-    for (var i = 0; i < coords.length; i++) {
-      allCoordinates.push(coords[i].coordinates);
-    }
-  });
-}
-
-
 //* RUN TO POPULATE MONGODB with TWEETS *//
 //****************
 // streamTweets();
 
 //* (RUN WHEN READY) TO PLOT COORDS INTO APP
-queryCoords();
+// queryCoords();
 
 /*Get home page */
 router.get('/', function (req, res) {
@@ -34,11 +22,29 @@ router.get('/', function (req, res) {
 });
 
 io.on('connection', function(socket) {
+  function queryCoords() {
+    tweetsDatabase.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
+      if(err) return console.error(err);
+      // emitCoords(coords.length - 1, coords);
+      sendCoords(coords);
 
-  setTimeout(function() {
-    io.emit('coordinates', allCoordinates);
-  }, 1000);
+    });
+  }
 
+  // function emitCoords(index, coordinates) {
+  //   if(index < 0) return;
+  //   io.emit('coordinate', coordinates[index].coordinates);
+  //   coordinates.splice(-1, 1);
+  //   setTimeout(emitCoords(coordinates.length - 1, coordinates), 10000);
+  // };
+
+  function sendCoords(coordinates) {
+    for (var i = 0; i < coordinates.length; i++) {
+      io.emit('coordinate', coordinates[i].coordinates);
+    }
+  };
+
+  queryCoords();
 })
 
 http.listen(3000, function() {
