@@ -25,21 +25,23 @@ io.on('connection', function(socket) {
   function queryCoords() {
     tweetsDatabase.find( {}, { coordinates: 1, _id: 0 }, function(err, coords) {
       if(err) return console.error(err);
-
-      emitCoords(coords.length - 1, coords);
-
-      // for (var i = 0; i < coords.length; i++) {
-      //   io.emit('coordinate', coords[i].coordinates);
-      // }
+      // emitCoords(coords.length - 1, coords);
+      sendCoords(coords);
 
     });
   }
 
-  function emitCoords(index, coordinates) {
-    if(index < 0) return;
-    io.emit('coordinate', coordinates[index].coordinates);
-    coordinates.splice(-1, 1);
-    setTimeout(emitCoords(coordinates.length - 1, coordinates), 10000);
+  // function emitCoords(index, coordinates) {
+  //   if(index < 0) return;
+  //   io.emit('coordinate', coordinates[index].coordinates);
+  //   coordinates.splice(-1, 1);
+  //   setTimeout(emitCoords(coordinates.length - 1, coordinates), 10000);
+  // };
+
+  function sendCoords(coordinates) {
+    for (var i = 0; i < coordinates.length; i++) {
+      io.emit('coordinate', coordinates[i].coordinates);
+    }
   };
 
   queryCoords();
