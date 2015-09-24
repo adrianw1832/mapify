@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/adrianw1832/mapify#readme",
   "devDependencies": {
-    "jasmine-node": "^1.14.5"
+    "chai": "^3.2.0",
+    "chai-http": "^1.0.0",
+    "jasmine-node": "^1.14.5",
+    "mocha": "^2.3.1"
   },
   "dependencies": {
     "express": "^4.13.3",
