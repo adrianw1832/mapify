@@ -31,10 +31,4 @@ describe('Mapify Feature', function() {
     });
   });
 
-  it('spies on get JSON to plot tweets', function() {
-    spyOn($, 'getJSON');
-    expect($.getJSON).toHaveBeenCalled();
-  });
-
-
 });
