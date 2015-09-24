@@ -1,5 +1,8 @@
 var T = require('./twit');
 var TweetModel = require('../../server/models/tweet');
+var formatTweet = require('./tweetFormatter.js');
+var sentimentCalculate = require('./sentimentCalculator.js');
+
 
 // STREAMING & SAVING INTO MONGO CODE
 // ---------------------------------
@@ -16,7 +19,8 @@ function streamOn() {
         createdAt:    tweet.created_at,
         tweetID:      tweet.id,
         coordinates:  tweet.coordinates.coordinates,
-        text:         tweet.text
+        text:         tweet.text,
+        sentimentValue: sentimentCalculate(formatTweet(tweet).text)
       })
       newTweet.save(function(err, newTweet){
         if(err) return console.error(err);
