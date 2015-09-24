@@ -37,13 +37,11 @@ io.on('connection', function(socket) {
   //   coordinates.splice(-1, 1);
   //   setTimeout(emitCoords(coordinates.length - 1, coordinates), 10000);
   // };
-
   function sendCoords(coordinates) {
     for (var i = 0; i < coordinates.length; i++) {
       io.emit('coordinate', coordinates[i].coordinates);
     }
   };
-
   queryCoords();
 })
 
