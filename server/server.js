@@ -16,9 +16,10 @@ var routes = require('./routes/index.js');
 // *** main routes *** //
 app.use('/', routes)
 
-
 http.listen((process.env.PORT || 3000), function(){
   process.env.PORT ?
     console.log('listening on: ', process.env.PORT) :
     console.log('listening on *:3000');
 })
+
+module.exports = app;
