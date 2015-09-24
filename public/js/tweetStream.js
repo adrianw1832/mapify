@@ -1,5 +1,5 @@
 var T = require('./twit');
-var TweetModel = require('../../model/tweet.js');
+var TweetModel = require('../../server/models/tweet');
 
 // STREAMING & SAVING INTO MONGO CODE
 // ---------------------------------

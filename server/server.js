@@ -5,9 +5,9 @@ var router = express.Router();
 var io = require('socket.io')(http);
 
 app.use(express.static('public'));
-var streamTweets = require('./public/js/tweetStream.js');
+var streamTweets = require('../public/js/tweetStream.js');
 // var plotCoords = require('./public/js/tweetsCoordinates.js');
-var tweetsDatabase = require('./model/tweet.js');
+var tweetsDatabase = require('./models/tweet.js');
 
 //* RUN TO POPULATE MONGODB with TWEETS *//
 //****************
