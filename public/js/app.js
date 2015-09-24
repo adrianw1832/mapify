@@ -8,7 +8,6 @@ $(document).ready(function() {
   var mapWidth = baseWidth * scalingFactor; // X-axis/Longitude: Value + 180
   var mapHeight = baseHeight * scalingFactor; // Y-axis/Latitude: 90 - Value
   var map = new Map(scalingFactor, mapContext);
-  var socket = io();
 
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
@@ -17,10 +16,11 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
-  // PRINTS COORDINATES FROM THE DATABASE
-  // socket.on('coordinate', function(coordinate) {
-  //   map.plotCoords(coordinate[0], coordinate[1]);
-  // });
+  $.getJSON('http://localhost:3000/tweets', function(tweets) {
+    for (var i = 0; i < tweets.length; i++) {
+      map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1]);
+    }
+  });
 
   //Testing
   drawMapBackground();
@@ -34,10 +34,6 @@ $(document).ready(function() {
   // FOR TESTING PLOTTING TWEETS
   function testPlot() {
     map.plotCoords(104, 1);
-    // map.plotCoords(-102, 23);
-    // map.plotCoords(-35, -8);
-    // map.plotCoords(110, -8);
-    // map.plotCoords(-97, 35);
   };
 
   $('.testButton').click(function() {
