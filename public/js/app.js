@@ -17,37 +17,12 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
-  // Untested Feature Test
-  function plotTweets() {
-    map.plotCoords(104, 1);
-    map.plotCoords(-102, 23);
-    map.plotCoords(-35, -8);
-    map.plotCoords(110, -8);
-    map.plotCoords(-97, 35);
-    $('body').append('<h1 class="test">Potato</h1>')
-  };
 
-  $('.plotTweets').click(function() {
-    plotTweets();
-  });
 
   // PRINTS COORDINATES FROM THE DATABASE
-  socket.on('coordinate', function(coordinate) {
-    map.plotCoords(coordinate[0], coordinate[1]);
-  });
-
-
-
-  // socket.on('coordinates', function(coordinates) {
-  //   slowDown(coordinates.length - 1, coordinates);
-  //   // console.log(coordinates);
+  // socket.on('coordinate', function(coordinate) {
+  //   map.plotCoords(coordinate[0], coordinate[1]);
   // });
-
-  // function slowDown(index, coordinates) {
-  //   if (index < 0) return;
-  //   map.plotCoords(coordinates[index].coordinates[0], coordinates[index].coordinates[1]);
-  //   setTimeout(slowDown(index - 1, coordinates), 40000);
-  // };
 
   //Testing
   drawMapBackground();
@@ -56,8 +31,19 @@ $(document).ready(function() {
   // setTimeout(function() {
   //   var dataURL = mapCanvas.toDataURL();
   //   console.log(dataURL);
-  // }, 2000);
+  // }, 5000);
 
+  // FOR TESTING PLOTTING TWEETS
+  function testPlot() {
+    map.plotCoords(104, 1);
+    // map.plotCoords(-102, 23);
+    // map.plotCoords(-35, -8);
+    // map.plotCoords(110, -8);
+    // map.plotCoords(-97, 35);
+  };
 
+  $('.testButton').click(function() {
+    testPlot();
+  });
 
 });
