@@ -37,16 +37,20 @@ io.on('connection', function(socket) {
   //   coordinates.splice(-1, 1);
   //   setTimeout(emitCoords(coordinates.length - 1, coordinates), 10000);
   // };
-
   function sendCoords(coordinates) {
     for (var i = 0; i < coordinates.length; i++) {
       io.emit('coordinate', coordinates[i].coordinates);
     }
   };
-
   queryCoords();
 })
 
-http.listen(3000, function() {
-  console.log('listening on *:3000');
-});
+http.listen((process.env.PORT || 3000), function(){
+  process.env.PORT ?
+    console.log('listening on: ', process.env.PORT) :
+    console.log('listening on *:3000');
+})
+
+// http.listen(3000, function() {
+//   console.log('listening on *:3000');
+// });
