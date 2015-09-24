@@ -31,5 +31,4 @@ describe('Mapify Feature', function() {
     });
   });
 
-
 });
