@@ -23,11 +23,23 @@ $(document).ready(function() {
   //   }
   // });
   //****FOR LOCAL ENVIRONMENT******//
-  $.getJSON('http://localhost:3000/tweets', function(tweets) {
 
-    for (var i = 0; i < tweets.length; i++) {
+
+  // $.getJSON('http://localhost:3000/tweets', function(tweets) {
+
+  //   for (var i = 0; i < tweets.length; i++) {
+  //     map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
+  //   }
+
+  $.ajax({
+    dataType:"json",
+    url: 'http://localhost:3000/tweets',
+    success:function(tweets) {
+      for (var i = 0; i < tweets.length; i++) {
       map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
-    }
+      }
+
+
     // for (var i = 0; i < tweets.length; i++) {
     //   map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
     // }
@@ -38,7 +50,11 @@ $(document).ready(function() {
       counter += 1;
     };
     setInterval(next_tweet, 10);
+  }
   });
+
+
+
 
   //Testing
   drawMapBackground();
