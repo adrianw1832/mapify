@@ -16,60 +16,54 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
-  $('.tweetMap').hide();
-
-  $('.search-term').click(function() {
-    $('.homepage').hide();
-    $('.tweetMap').show();
-  });
-
   $('input:text').keypress(function(event) {
     if (event.keyCode == 13) {
       $('.search-term').click();
     }
   });
 
+  $('.search-term').click(function() {
+    $('.homepage').hide();
+    $('.tweetMap').show();
 
-  //**** FOR HEROKU DEVELOP-BRANCH DEPLOYMENT ******//
-  // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
-  //   var counter = 0;
-  //   function plotOneByOne() {
-  //     var index = counter % tweets.length
-  //     map.plotCoords(tweets[index].coordinates[0], tweets[index].coordinates[1], tweets[index].sentimentColour);
-  //     counter += 1;
-  //   };
-  //   setInterval(plotOneByOne, 10);
-  // });
-  //****FOR LOCAL ENVIRONMENT******//
-  $.getJSON('http://localhost:3000/tweets', function(tweets) {
-    var counter = 0;
-    function plotOneByOne() {
-      var index = counter % tweets.length
-      map.plotCoords(tweets[index].coordinates[0], tweets[index].coordinates[1], tweets[index].sentimentColour);
-      counter += 1;
-    };
-    setInterval(plotOneByOne, 10);
+    // *** FOR HEROKU DEPLOYMENT *** //
+    // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
+    //   var index = 0;
+    //   var firstTen = 10;
+    //   function plotTenByTen() {
+    //     if (index <= tweets.length) {
+    //       var nextTen = tweets.slice(index, firstTen);
+    //       for (var i = 0; i < nextTen.length; i++) {
+    //         map.plotCoords(nextTen[i].coordinates[0], nextTen[i].coordinates[1], nextTen[i].sentimentColour);
+    //       }
+    //       index += 10;
+    //       firstTen += 10;
+    //     }
+    //   };
+    //   setInterval(plotTenByTen, 20);
+    // });
+
+
+    // *** FOR LOCAL ENVIRONMENT *** //
+    $.getJSON('http://localhost:3000/tweets', function(tweets) {
+      var index = 0;
+      var firstTen = 10;
+      function plotTenByTen() {
+        if (index <= tweets.length) {
+          var nextTen = tweets.slice(index, firstTen);
+          for (var i = 0; i < nextTen.length; i++) {
+            map.plotCoords(nextTen[i].coordinates[0], nextTen[i].coordinates[1], nextTen[i].sentimentColour);
+          }
+          index += 10;
+          firstTen += 10;
+        }
+      };
+      setInterval(plotTenByTen, 20);
+    });
   });
 
-  //****FOR LOCAL ENVIRONMENT******//
-  // $.getJSON('http://localhost:3000/tweets', function(tweets) {
-  //   var counter = 0;
-  //   function next_tweet() {
-  //     var index = counter % tweets.length
-  //     map.plotCoords(tweets[index].coordinates[0], tweets[index].coordinates[1], tweets[index].sentimentColour);
-  //     counter += 1;
-  //   };
-  //   setInterval(next_tweet, 10);
-  // });
-
-  //Testing
   drawMapBackground();
-
-  // FOR TESTING IMAGES GETTING BASE64
-  // setTimeout(function() {
-  //   var dataURL = mapCanvas.toDataURL();
-  //   console.log(dataURL);
-  // }, 1);
+  $('.tweetMap').hide();
 
   // FOR TESTING PLOTTING TWEETS
   function testPlot() {
@@ -79,5 +73,11 @@ $(document).ready(function() {
   $('.testButton').click(function() {
     testPlot();
   });
+
+  // FOR TESTING IMAGES GETTING BASE64
+  // setTimeout(function() {
+  //   var dataURL = mapCanvas.toDataURL();
+  //   console.log(dataURL);
+  // }, 1);
 
 });
