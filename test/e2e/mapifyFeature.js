@@ -5,6 +5,7 @@ describe('Mapify Feature', function() {
 
   var mapCanvas = element(by.className('mapCanvas'));
   var testButton = element(by.className('testButton'));
+  var searchBar = element(by.className('searchBar'));
 
   beforeEach(function() {
     browser.get('http://localhost:8080');
@@ -30,5 +31,10 @@ describe('Mapify Feature', function() {
         expect(result).toEqual(base64.plotBackground);
     });
   });
+
+  it('has a search bar', function() {
+    expect(searchBar.isDisplayed()).toBeTruthy();
+  });
+
 
 });
