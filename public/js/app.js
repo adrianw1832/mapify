@@ -24,9 +24,6 @@ $(document).ready(function() {
   // });
   //****FOR LOCAL ENVIRONMENT******//
   $.getJSON('http://localhost:3000/tweets', function(tweets) {
-    // for (var i = 0; i < tweets.length; i++) {
-    //   map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
-    // }
     var counter = 0;
     function next_tweet() {
       var index = counter % tweets.length
@@ -43,11 +40,11 @@ $(document).ready(function() {
   // setTimeout(function() {
   //   var dataURL = mapCanvas.toDataURL();
   //   console.log(dataURL);
-  // }, 5000);
+  // }, 1);
 
   // FOR TESTING PLOTTING TWEETS
   function testPlot() {
-    map.plotCoords(104, 1, "#000000");
+    map.plotCoords(104, 1, "#FAFBFA");
   };
 
   $('.testButton').click(function() {
