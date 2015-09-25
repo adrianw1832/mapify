@@ -18,17 +18,7 @@ $(document).ready(function() {
 
 
   //**** FOR HEROKU DEVELOP-BRANCH DEPLOYMENT ******//
-  // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
-  //   var counter = 0;
-  //   function plotOneByOne() {
-  //     var index = counter % tweets.length
-  //     map.plotCoords(tweets[index].coordinates[0], tweets[index].coordinates[1], tweets[index].sentimentColour);
-  //     counter += 1;
-  //   };
-  //   setInterval(plotOneByOne, 10);
-  // });
-  //****FOR LOCAL ENVIRONMENT******//
-  $.getJSON('http://localhost:3000/tweets', function(tweets) {
+  $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
     var counter = 0;
     function plotOneByOne() {
       var index = counter % tweets.length
@@ -37,6 +27,16 @@ $(document).ready(function() {
     };
     setInterval(plotOneByOne, 10);
   });
+  //****FOR LOCAL ENVIRONMENT******//
+  // $.getJSON('http://localhost:3000/tweets', function(tweets) {
+  //   var counter = 0;
+  //   function plotOneByOne() {
+  //     var index = counter % tweets.length
+  //     map.plotCoords(tweets[index].coordinates[0], tweets[index].coordinates[1], tweets[index].sentimentColour);
+  //     counter += 1;
+  //   };
+  //   setInterval(plotOneByOne, 10);
+  // });
 
   //****FOR LOCAL ENVIRONMENT******//
   // $.getJSON('http://localhost:3000/tweets', function(tweets) {
