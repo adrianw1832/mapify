@@ -19,7 +19,7 @@ $(document).ready(function() {
   //**** FOR HEROKU DEVELOP-BRANCH DEPLOYMENT ******//
   // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
   //   for (var i = 0; i < tweets.length; i++) {
-  //     map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1]); //we pass in the argument for color
+  //     map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
   //   }
   // });
   //****FOR LOCAL ENVIRONMENT******//
