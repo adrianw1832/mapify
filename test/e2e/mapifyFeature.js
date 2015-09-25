@@ -19,11 +19,11 @@ describe('Mapify Feature', function() {
     expect(mapCanvas.isPresent()).toBeTruthy();
   });
 
-  it('draw map background on canvas is accurate', function() {
-    browser.executeScript("return document.getElementsByTagName('canvas')[0].toDataURL()").then(function (result) {
-        expect(result).toEqual(base64.mapBackground);
-    });
-  });
+  // it('draw map background on canvas is accurate', function() {
+  //   browser.executeScript("return document.getElementsByTagName('canvas')[0].toDataURL()").then(function (result) {
+  //       expect(result).toEqual(base64.mapBackground);
+  //   });
+  // });
 
   // it('plots tweets correctly', function() {
   //   testButton.click();

@@ -4,7 +4,7 @@ $(document).ready(function() {
   var mapContext = mapCanvas.getContext('2d');
   var baseWidth = 360;
   var baseHeight = 180;
-  var scalingFactor = 3;
+  var scalingFactor = 4.5;
   var mapWidth = baseWidth * scalingFactor; // X-axis/Longitude: Value + 180
   var mapHeight = baseHeight * scalingFactor; // Y-axis/Latitude: 90 - Value
   var map = new Map(scalingFactor, mapContext);

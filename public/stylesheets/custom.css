@@ -3,3 +3,11 @@
   border: none !important;
   font-size: 0;
 }
+
+.container {
+  margin-top: 0%;
+  display: relative;
+  left: 44%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
