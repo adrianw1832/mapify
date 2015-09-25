@@ -16,8 +16,10 @@ describe('Map', function() {
 
   it('plots coordinates on the canvas accurately', function() {
     spyOn(mapContext, 'arc');
-    map.plotCoords(104, 1);
-    expect(mapContext.arc).toHaveBeenCalledWith(852, 267, 2, 0, Math.PI * 2, true);
+    map.plotCoords(104, 1, "#000000");
+    var xCoord = (104 + 180) * scalingFactor;
+    var yCoord = (90 - 1) * scalingFactor;
+    expect(mapContext.arc).toHaveBeenCalledWith(xCoord, yCoord, 2, 0, Math.PI * 2, true);
   });
 
 
