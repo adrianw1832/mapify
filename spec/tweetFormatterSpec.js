@@ -1,4 +1,5 @@
-var tweetFormatter = require('../public/js/tweetFormatter');
+var tweetFormatterObject = require('../public/js/tweetFormatter');
+var tweetFormatter = new tweetFormatterObject();
 
 describe("formatting the tweet", function () {
   it('should return an array of words in lower case letters', function() {
