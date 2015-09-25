@@ -25,7 +25,7 @@ function streamOn() {
         coordinates:  tweet.coordinates.coordinates,
         text:         tweet.text,
         sentimentValue: sentimentValue,
-        sentimentColour: colourGenerator.gener(sentimentValue)
+        sentimentColour: colourGenerator.generate(sentimentValue)
       })
       newTweet.save(function(err, newTweet){
         if(err) return console.error(err);
