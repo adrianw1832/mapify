@@ -1,4 +1,5 @@
-var sentimentCalculator = require('../public/js/sentimentCalculator');
+var sentimentCalculatorObject = require('../public/js/sentimentCalculator');
+var sentimentCalculator = new sentimentCalculatorObject();
 var sentimentLookup = require('../public/word_library/library.js');
 
 describe("sentimentCalculator", function () {

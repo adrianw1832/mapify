@@ -1,4 +1,5 @@
-colourGenerator = require('../public/js/colourGenerator');
+colourGeneratorObject = require('../public/js/colourGenerator');
+colourGenerator = new colourGeneratorObject();
 
 describe("colourGenerator", function () {
   it('returns green when the sentiment value is above 0', function() {

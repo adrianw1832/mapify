@@ -1,4 +1,7 @@
-var format = function(tweet) {
+var tweetFormatter = function() {
+};
+
+tweetFormatter.prototype.format = function (tweet) {
   var strippedTweet = _stripTweetOfPunctuations(tweet.text)
   var formattedTweet = _formatTweet(strippedTweet);
   tweet.text = formattedTweet;
@@ -12,4 +15,5 @@ function _stripTweetOfPunctuations(text) {
 function _formatTweet(text) {
   return text.toLowerCase().split(' ').filter(Boolean);
 }
-module.exports = format;
+
+module.exports = tweetFormatter;

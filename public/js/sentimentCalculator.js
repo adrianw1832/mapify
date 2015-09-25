@@ -1,7 +1,10 @@
+var sentimentCalculator = function() {
+};
+
 var library = require('../word_library/library');
 var score;
 
-var calculate = function(tweetArray) {
+sentimentCalculator.prototype.calculate = function (tweetArray) {
   score = 0;
   _lookupLibrary(tweetArray);
   return score;
@@ -14,4 +17,4 @@ function _lookupLibrary(tweetArray) {
   }
 }
 
-module.exports = calculate;
+module.exports = sentimentCalculator;
