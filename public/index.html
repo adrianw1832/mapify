@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Mapify</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" />
 </head>
 <body>
-  <input type="text" class="searchBar" />
-  <input class="testButton" type="submit" />
-  <canvas class="mapCanvas"></canvas>
+
+  <section class="homepage">
+    <input class="searchBar" type="text" />
+    <input class="search-term" type="submit" value="Enter" />
+  </section>
+
+  <section class="tweetMap container col-md-11">
+    <canvas class="mapCanvas"></canvas>
+    <input class="testButton" type="submit" />
+  </section>
 
 </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
