@@ -6,7 +6,6 @@ var herokuMongoURI = uriUtil.formatMongoose("mongodb://heroku_j63z0ktq:211konang
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
-
 function isServerRunningHeroku(){
   return process.env.NODE_ENV === 'production';
 }
