@@ -40,7 +40,7 @@ $(document).ready(function() {
 
   // FOR TESTING PLOTTING TWEETS
   function testPlot() {
-    map.plotCoords(104, 1);
+    map.plotCoords(104, 1, "#000000");
   };
 
   $('.testButton').click(function() {
