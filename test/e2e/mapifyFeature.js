@@ -8,7 +8,7 @@ describe('Mapify Feature', function() {
   var searchBar = element(by.className('searchBar'));
 
   beforeEach(function() {
-    browser.get('http://localhost:8080');
+    browser.get('http://localhost:3000');
   });
 
   it('has a title', function() {
@@ -25,12 +25,12 @@ describe('Mapify Feature', function() {
     });
   });
 
-  it('plots tweets correctly', function() {
-    testButton.click();
-    browser.executeScript("return document.getElementsByTagName('canvas')[0].toDataURL()").then(function (result) {
-        expect(result).toEqual(base64.plotBackground);
-    });
-  });
+  // it('plots tweets correctly', function() {
+  //   testButton.click();
+  //   browser.executeScript("return document.getElementsByTagName('canvas')[0].toDataURL()").then(function (result) {
+  //       expect(result).toEqual(base64.plotBackground);
+  //   });
+  // });
 
   it('has a search bar', function() {
     expect(searchBar.isDisplayed()).toBeTruthy();
