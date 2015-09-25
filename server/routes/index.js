@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 router.get('/tweets', queryCoords);
 
 function queryCoords(req, res) {
-  tweetsDatabase.find(function(err, coords) {
+  tweetsDatabase.find({}, { coordinates: 1, sentimentColour:1, _id: 0 }, function(err, coords) {
     if (err) {
       res.json({'ERROR': err});
     } else {
