@@ -16,6 +16,19 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
+  $('.tweetMap').hide();
+
+  $('.search-term').click(function() {
+    $('.homepage').hide();
+    $('.tweetMap').show();
+  });
+
+  $('input:text').keypress(function(event) {
+    if (event.keyCode == 13) {
+      $('.search-term').click();
+    }
+  });
+
 
   //**** FOR HEROKU DEVELOP-BRANCH DEPLOYMENT ******//
   // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
