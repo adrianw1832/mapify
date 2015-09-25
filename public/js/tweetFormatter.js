@@ -4,8 +4,7 @@ var tweetFormatter = function() {
 tweetFormatter.prototype.format = function (tweet) {
   var strippedTweet = _stripTweetOfPunctuations(tweet.text)
   var formattedTweet = _formatTweet(strippedTweet);
-  tweet.text = formattedTweet;
-  return tweet;
+  return formattedTweet;
 };
 
 function _stripTweetOfPunctuations(text) {
