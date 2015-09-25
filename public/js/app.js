@@ -16,21 +16,8 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
-  //**** FOR HEROKU DEVELOP-BRANCH DEPLOYMENT ******//
-  // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
-  //   for (var i = 0; i < tweets.length; i++) {
-  //     map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
-  //   }
-  // });
-  //****FOR LOCAL ENVIRONMENT******//
-  $.getJSON('http://localhost:3000/tweets', function(tweets) {
-
-    for (var i = 0; i < tweets.length; i++) {
-      map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
-    }
-    // for (var i = 0; i < tweets.length; i++) {
-    //   map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
-    // }
+  // **** FOR HEROKU DEVELOP-BRANCH DEPLOYMENT ******//
+  $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
     var counter = 0;
     function next_tweet() {
       var index = counter % tweets.length
@@ -39,6 +26,17 @@ $(document).ready(function() {
     };
     setInterval(next_tweet, 10);
   });
+
+  //****FOR LOCAL ENVIRONMENT******//
+  // $.getJSON('http://localhost:3000/tweets', function(tweets) {
+  //   var counter = 0;
+  //   function next_tweet() {
+  //     var index = counter % tweets.length
+  //     map.plotCoords(tweets[index].coordinates[0], tweets[index].coordinates[1], tweets[index].sentimentColour);
+  //     counter += 1;
+  //   };
+  //   setInterval(next_tweet, 10);
+  // });
 
   //Testing
   drawMapBackground();
