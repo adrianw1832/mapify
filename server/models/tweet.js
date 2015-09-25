@@ -8,8 +8,7 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
 
 
 function isServerRunningHeroku(){
-  var herokuPort = 5000;
-  return herokuPort === process.env.PORT;
+  return process.env.NODE_ENV === 'production';
 }
 
 isServerRunningHeroku() ? mongoose.connect(herokuMongoURI, options) : mongoose.connect(localMongoDB)
