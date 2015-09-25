@@ -12,7 +12,7 @@ $(document).ready(function() {
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
     mapCanvas.width = mapWidth;
-    mapContext.fillStyle = "#BEB9FF";
+    mapContext.fillStyle = "#000000";
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   };
 
@@ -24,9 +24,20 @@ $(document).ready(function() {
   // });
   //****FOR LOCAL ENVIRONMENT******//
   $.getJSON('http://localhost:3000/tweets', function(tweets) {
+
     for (var i = 0; i < tweets.length; i++) {
       map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
     }
+    // for (var i = 0; i < tweets.length; i++) {
+    //   map.plotCoords(tweets[i].coordinates[0], tweets[i].coordinates[1], tweets[i].sentimentColour);
+    // }
+    var counter = 0;
+    function next_tweet() {
+      var index = counter % tweets.length
+      map.plotCoords(tweets[index].coordinates[0], tweets[index].coordinates[1], tweets[index].sentimentColour);
+      counter += 1;
+    };
+    setInterval(next_tweet, 10);
   });
 
   //Testing
@@ -40,7 +51,7 @@ $(document).ready(function() {
 
   // FOR TESTING PLOTTING TWEETS
   function testPlot() {
-    map.plotCoords(104, 1);
+    map.plotCoords(104, 1, "#000000");
   };
 
   $('.testButton').click(function() {
