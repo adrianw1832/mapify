@@ -26,12 +26,12 @@ function streamOn() {
         text:         tweet.text,
         sentimentValue: sentimentValue,
         sentimentColour: colourGenerator.generate(sentimentValue)
-      })
+      });
       newTweet.save(function(err, newTweet){
         if(err) return console.error(err);
-      })
+      });
     }
   });
-};
+}
 
 module.exports = streamOn;

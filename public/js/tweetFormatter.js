@@ -2,7 +2,7 @@ var tweetFormatter = function() {
 };
 
 tweetFormatter.prototype.format = function (tweet) {
-  var strippedTweet = _stripTweetOfPunctuations(tweet.text)
+  var strippedTweet = _stripTweetOfPunctuations(tweet.text);
   var formattedTweet = _formatTweet(strippedTweet);
   return formattedTweet;
 };
