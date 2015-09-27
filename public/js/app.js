@@ -25,9 +25,10 @@ $(document).ready(function() {
   $('.searchSubmit').click(function() {
     $('.homepage').hide();
     $('.tweetMap').show();
+    var searchTerm = $('.searchTerm').val();
 
     // *** FOR HEROKU DEPLOYMENT *** //
-    // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets', function(tweets) {
+    // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets' + searchTerm, function(tweets) {
     //   var batchSize = tweets.length / 50;
     //   var startCounter = 0, endCounter = batchSize;
     //   function plotInBatches() {
@@ -43,9 +44,8 @@ $(document).ready(function() {
     //   setInterval(plotInBatches, 100);
     // });
 
-
     // *** FOR LOCAL ENVIRONMENT *** //
-    $.getJSON('http://localhost:3000/tweets', function(tweets) {
+    $.getJSON('http://localhost:3000/tweets/' + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
