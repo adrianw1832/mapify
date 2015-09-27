@@ -20,7 +20,7 @@ function queryCoords(req, res) {
       res.json(coords);
     }
   })
-  .limit(25000);
+  .limit(10000);
 }
 
 module.exports = router;

@@ -28,7 +28,7 @@ $(document).ready(function() {
     var searchTerm = $('.searchTerm').val();
 
     // *** FOR HEROKU DEPLOYMENT *** //
-    $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets' + searchTerm, function(tweets) {
+    $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets/' + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
