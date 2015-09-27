@@ -1,7 +1,7 @@
 function Map(scalingFactor, mapContext) {
   this.scalingFactor = scalingFactor;
   this.mapContext = mapContext;
-};
+}
 
 Map.prototype.plotCoords = function(longitude, latitude, colour) {
   var xCoord = (longitude + 180) * this.scalingFactor;

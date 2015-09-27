@@ -8,13 +8,13 @@ var streamTweets = require('../public/js/tweetStream.js');
 
 //* RUN TO POPULATE MONGODB with TWEETS *//
 //****************
-streamTweets();
+// streamTweets();
 
 /*Get home page */
 var routes = require('./routes/index.js');
 
 // *** main routes *** //
-app.use('/', routes)
+app.use('/', routes);
 
 http.listen((process.env.PORT), function(err){
   if(err) return console.error(err);
