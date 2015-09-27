@@ -5,7 +5,7 @@ describe('Mapify Feature', function() {
 
   var mapCanvas = element(by.className('mapCanvas'));
   var testButton = element(by.className('testButton'));
-  var searchBar = element(by.className('searchBar'));
+  var searchTerm = element(by.className('searchTerm'));
 
   beforeEach(function() {
     browser.get('http://localhost:3000');
@@ -33,8 +33,7 @@ describe('Mapify Feature', function() {
   // });
 
   it('has a search bar', function() {
-    expect(searchBar.isDisplayed()).toBeTruthy();
+    expect(searchTerm.isDisplayed()).toBeTruthy();
   });
-
 
 });
