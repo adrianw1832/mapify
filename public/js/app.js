@@ -79,6 +79,12 @@ $(document).ready(function() {
       }
       setInterval(plotInBatches, 100);
     });
+
+    $.getJSON('http://localhost:3000/tweets/' + searchTerm + '/percentages', function(percentageNumbers) {
+      $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
+      $('.positive').html("Positive: " + percentageNumbers.positive + "%");
+      $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+    })
   });
 
   drawMapBackground();
