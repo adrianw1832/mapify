@@ -24,6 +24,7 @@ $(document).ready(function() {
 
   $('.searchSubmit').click(function() {
     $('.input-group').hide();
+    $('.image').remove();
     $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
