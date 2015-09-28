@@ -4,9 +4,9 @@
   font-size: 0;
 }
 
-/*body {
-  background-color: black;
-}*/
+body {
+  transition: background-color 1s ease;
+}
 
 .container {
   display: relative;
