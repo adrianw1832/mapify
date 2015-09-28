@@ -8,6 +8,8 @@ $(document).ready(function() {
   var mapWidth = baseWidth * scalingFactor;
   var mapHeight = baseHeight * scalingFactor;
   var map = new Map(scalingFactor, mapContext);
+  var prodDeployURL = "https://stormy-anchorage-2616.herokuapp.com/tweets/";
+  var localDeployURL = "http://localhost:3000/tweets/";
 
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
@@ -47,26 +49,7 @@ $(document).ready(function() {
     // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
-
-    // *** FOR HEROKU DEPLOYMENT *** //
-    // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets/' + searchTerm, function(tweets) {
-    //   var batchSize = tweets.length / 50;
-    //   var startCounter = 0, endCounter = batchSize;
-    //   function plotInBatches() {
-    //     if (startCounter <= tweets.length) {
-    //       var nextBatch = tweets.slice(startCounter, endCounter);
-    //       for (var i = 0; i < nextBatch.length; i++) {
-    //         map.plotTweet(nextBatch[i]);
-    //       }
-    //       startCounter += batchSize;
-    //       endCounter += batchSize;
-    //     }
-    //   }
-    //   setInterval(plotInBatches, 100);
-    // });
-
-    // *** FOR LOCAL ENVIRONMENT *** //
-    $.getJSON('http://localhost:3000/tweets/' + searchTerm, function(tweets) {
+    $.getJSON(localDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -80,17 +63,28 @@ $(document).ready(function() {
         }
       }
       setInterval(plotInBatches, 100);
+      displayPercents();
     });
 
-    $.getJSON('http://localhost:3000/tweets/' + searchTerm + '/percentages', function(percentageNumbers) {
-      if (percentageNumbers.totalTweets == 0) {
-        return
-      } else {
-        $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-        $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-        $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+    function displayPercents() {
+      $.getJSON('http://localhost:3000/tweets/' + searchTerm + '/percentages', function(percentageNumbers) {
+        if (_arePercentagesNull(percentageNumbers) || _arePercentagesInRange(percentageNumbers)) {
+          $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
+          $('.positive').html("Positive: " + percentageNumbers.positive + "%");
+          $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+        }
+        else {
+          return console.error('Percentages are either null or do not add up to 100');
+        }
+      });
+      function _arePercentagesNull(percentageNumbers) {
+        return !(percentageNumbers.neutral === null || percentageNumbers.positive === null ||
+          percentageNumbers.negative === null);
       }
-    })
+      function _arePercentagesInRange(percentageNumbers) {
+        return percentageNumbers.neutral + percentageNumbers.positive + percentageNumbers.negative == 100;
+      }
+    }
   });
 
   drawMapBackground();
