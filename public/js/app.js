@@ -83,9 +83,13 @@ $(document).ready(function() {
     });
 
     $.getJSON('http://localhost:3000/tweets/' + searchTerm + '/percentages', function(percentageNumbers) {
-      $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-      $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-      $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+      if (percentageNumbers.totalTweets == 0) {
+        return
+      } else {
+        $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
+        $('.positive').html("Positive: " + percentageNumbers.positive + "%");
+        $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+      }
     })
   });
 
@@ -94,13 +98,13 @@ $(document).ready(function() {
   $('.percentages').hide();
 
   // FOR TESTING PLOTTING TWEETS
-  function testPlot() {
-    map.plotCoords(104, 1, "#FAFBFA");
-  }
+  // function testPlot() {
+  //   map.plotCoords(104, 1, "#FAFBFA");
+  // }
 
-  $('.testButton').click(function() {
-    testPlot();
-  });
+  // $('.testButton').click(function() {
+  //   testPlot();
+  // });
 
   // FOR TESTING IMAGES GETTING BASE64
   // setTimeout(function() {
