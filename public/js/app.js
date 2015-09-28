@@ -24,28 +24,14 @@ $(document).ready(function() {
 
   $('.searchSubmit').click(function() {
 
-    // $('.input-group').hide();
-
-    // $('.image').remove();
-
-    // $('body').fadeOut(300, function() {
-    //   $(this).css('background-color', 'black');
-    // });
-
-    // $('.tweetMap').show();
-
     $('.image').fadeOut("slow", function() {
       $(this).remove();
     });
-
     $('header').remove();
     $('.input-group').hide("slow");
-
     $('body').css('background-color', 'black');
-
     $('.tweetMap').delay(500).fadeIn("slow");
     $('.percentages').delay(500).fadeIn("slow");
-    // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
 
@@ -98,19 +84,5 @@ $(document).ready(function() {
   $('.tweetMap').hide();
   $('.percentages').hide();
 
-  // FOR TESTING PLOTTING TWEETS
-  // function testPlot() {
-  //   map.plotCoords(104, 1, "#FAFBFA");
-  // }
-
-  // $('.testButton').click(function() {
-  //   testPlot();
-  // });
-
-  // FOR TESTING IMAGES GETTING BASE64
-  // setTimeout(function() {
-  //   var dataURL = mapCanvas.toDataURL();
-  //   console.log(dataURL);
-  // }, 1);
 
 });

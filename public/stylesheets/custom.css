@@ -8,14 +8,20 @@ body {
   transition: background-color 1s ease;
 }
 
+
 .container {
-  display: relative;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  margin-top: 248px;
+}
+
+.container input {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
-  margin-top: 100px;
 }
 
 canvas.mapCanvas {
@@ -25,7 +31,7 @@ canvas.mapCanvas {
 
 header.jumbotron {
   background-color: white;
-  transform: scale(1, 0.5);
+  transform: scale(1, 0.65);
 }
 
 img {
