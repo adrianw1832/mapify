@@ -8,6 +8,7 @@ $(document).ready(function() {
   var mapWidth = baseWidth * scalingFactor;
   var mapHeight = baseHeight * scalingFactor;
   var map = new Map(scalingFactor, mapContext);
+  var dataStore = [];
 
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
@@ -54,6 +55,8 @@ $(document).ready(function() {
           var nextBatch = tweets.slice(startCounter, endCounter);
           for (var i = 0; i < nextBatch.length; i++) {
             map.plotTweet(nextBatch[i]);
+            dataStore.push(nextBatch[i]);
+            console.log(dataStore);
           }
           startCounter += batchSize;
           endCounter += batchSize;
@@ -66,14 +69,25 @@ $(document).ready(function() {
   drawMapBackground();
   $('.tweetMap').hide();
 
-  // FOR TESTING PLOTTING TWEETS
-  function testPlot() {
-    map.plotCoords(104, 1, "#FAFBFA");
-  }
-
-  $('.testButton').click(function() {
-    testPlot();
+  var lastScrollTop = 0;
+  $(window).scroll(function(event){
+     var st = $(this).scrollTop();
+     if (st > lastScrollTop){
+         // downscroll code
+     } else {
+        // upscroll code
+     }
+     lastScrollTop = st;
   });
+
+  // FOR TESTING PLOTTING TWEETS
+  // function testPlot() {
+  //   map.plotCoords(104, 1, "#FAFBFA");
+  // }
+
+  // $('.testButton').click(function() {
+  //   testPlot();
+  // });
 
   // FOR TESTING IMAGES GETTING BASE64
   // setTimeout(function() {
