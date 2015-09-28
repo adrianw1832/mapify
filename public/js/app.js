@@ -38,6 +38,7 @@ $(document).ready(function() {
       $(this).remove();
     });
 
+    $('header').remove();
     $('.input-group').hide("slow");
 
     $('body').css('background-color', 'black');
