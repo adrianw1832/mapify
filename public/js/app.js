@@ -16,14 +16,14 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   }
 
-  $('.searchBar').keypress(function(event) {
+  $('.searchTerm').keypress(function(event) {
     if (event.keyCode == 13) {
       $('.searchSubmit').click();
     }
   });
 
   $('.searchSubmit').click(function() {
-    $('.homepage').hide();
+    $('.input-group').hide();
     $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
