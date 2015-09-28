@@ -12,16 +12,17 @@ describe('Map', function() {
 
   beforeEach(function() {
     map = new mapClass(scalingFactor, mapContext);
+    tweet = {
+      coordinates: [104, 1],
+      colour: "#000000"
+    };
   });
 
   it('plots coordinates on the canvas accurately', function() {
     spyOn(mapContext, 'arc');
-    map.plotCoords(104, 1, "#000000");
+    map.plotTweet(tweet);
     var xCoord = (104 + 180) * scalingFactor;
     var yCoord = (90 - 1) * scalingFactor;
-    expect(mapContext.arc).toHaveBeenCalledWith(xCoord, yCoord, 2, 0, Math.PI * 2, true);
+    expect(mapContext.arc).toHaveBeenCalledWith(xCoord, yCoord, 1.5, 0, Math.PI * 2, true);
   });
-
-
 });
-
