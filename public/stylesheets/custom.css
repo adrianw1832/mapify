@@ -4,9 +4,9 @@
   font-size: 0;
 }
 
-body {
-/*  background-color: black;*/
-}
+/*body {
+  background-color: black;
+}*/
 
 .container {
   display: relative;
@@ -22,5 +22,5 @@ canvas.mapCanvas {
 }
 
 .image {
-  margin-bottom: 200px;
+  margin-bottom: 300px;
 }
