@@ -10,13 +10,27 @@
 
 .container {
   display: relative;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
+  margin-top: 100px;
 }
 
 canvas.mapCanvas {
   height: 100%;
   width: 100%;
 }
+
+header.jumbotron {
+  background-color: white;
+  transform: scale(1, 0.5);
+}
+
+img {
+  display: relative;
+  width: 100%;
+  margin-bottom: -50%;
+}
+
