@@ -24,7 +24,6 @@ function queryCoords(req, res) {
 }
 
 function queryPercentages(req, res) {
-
   tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralCount) {
     percentages["neutral"] = calPercentages(neutralCount);
 
