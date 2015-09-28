@@ -16,14 +16,30 @@
   -webkit-transform: translateX(-50%);
 }
 
-
 p {
-  color: white;
+  text-align: center;
+  z-index: 1000;
+  position: relative;
+  bottom: 100px;
 }
+
+p:nth-child(1){
+  color: #e6cc68;
+}
+
+p:nth-child(2){
+  color: #18bd4a;
+}
+
+p:nth-child(3){
+  color: #cd3f45;
+}
+
 
 canvas.mapCanvas {
   height: 100%;
   width: 100%;
+  z-index: 1;
 }
 
 .image {
