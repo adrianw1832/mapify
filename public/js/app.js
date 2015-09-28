@@ -28,24 +28,7 @@ $(document).ready(function() {
     var searchTerm = $('.searchTerm').val();
 
     // *** FOR HEROKU DEPLOYMENT *** //
-    $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets/' + searchTerm, function(tweets) {
-      var batchSize = tweets.length / 50;
-      var startCounter = 0, endCounter = batchSize;
-      function plotInBatches() {
-        if (startCounter <= tweets.length) {
-          var nextBatch = tweets.slice(startCounter, endCounter);
-          for (var i = 0; i < nextBatch.length; i++) {
-            map.plotCoords(nextBatch[i].coordinates[0], nextBatch[i].coordinates[1], nextBatch[i].sentimentColour);
-          }
-          startCounter += batchSize;
-          endCounter += batchSize;
-        }
-      }
-      setInterval(plotInBatches, 100);
-    });
-
-    // *** FOR LOCAL ENVIRONMENT *** //
-    // $.getJSON('http://localhost:3000/tweets/' + searchTerm, function(tweets) {
+    // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets/' + searchTerm, function(tweets) {
     //   var batchSize = tweets.length / 50;
     //   var startCounter = 0, endCounter = batchSize;
     //   function plotInBatches() {
@@ -60,6 +43,23 @@ $(document).ready(function() {
     //   }
     //   setInterval(plotInBatches, 100);
     // });
+
+    // *** FOR LOCAL ENVIRONMENT *** //
+    $.getJSON('http://localhost:3000/tweets/' + searchTerm, function(tweets) {
+      var batchSize = tweets.length / 50;
+      var startCounter = 0, endCounter = batchSize;
+      function plotInBatches() {
+        if (startCounter <= tweets.length) {
+          var nextBatch = tweets.slice(startCounter, endCounter);
+          for (var i = 0; i < nextBatch.length; i++) {
+            map.plotCoords(nextBatch[i].coordinates[0], nextBatch[i].coordinates[1], nextBatch[i].sentimentColour);
+          }
+          startCounter += batchSize;
+          endCounter += batchSize;
+        }
+      }
+      setInterval(plotInBatches, 100);
+    });
   });
 
   drawMapBackground();
