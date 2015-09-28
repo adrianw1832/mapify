@@ -43,8 +43,10 @@ $(document).ready(function() {
     $('body').css('background-color', 'black');
 
     $('.tweetMap').delay(500).fadeIn("slow");
+    $('.percentages').delay(500).fadeIn("slow");
     // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
+
 
     // *** FOR HEROKU DEPLOYMENT *** //
     // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets/' + searchTerm, function(tweets) {
@@ -89,6 +91,7 @@ $(document).ready(function() {
 
   drawMapBackground();
   $('.tweetMap').hide();
+  $('.percentages').hide();
 
   // FOR TESTING PLOTTING TWEETS
   function testPlot() {
