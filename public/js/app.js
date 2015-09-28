@@ -75,9 +75,8 @@ $(document).ready(function() {
     }
     drawMapBackground();
     map.redrawTweets(scalingFactor);
+    event.preventDefault();
   });
-
-
 
   // FOR TESTING PLOTTING TWEETS
   // function testPlot() {
