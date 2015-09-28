@@ -16,8 +16,9 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   }
 
-  $('.searchBar').keypress(function(event) {
+  $('.searchTerm').keypress(function(event) {
     if (event.keyCode == 13) {
+      console.log('Potato');
       $('.searchSubmit').click();
     }
   });
