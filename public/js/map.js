@@ -21,7 +21,6 @@ Map.prototype.redrawTweets = function(newScale) {
     this.mapContext.beginPath();
     this.mapContext.arc(xCoord, yCoord, 1.5, 0, Math.PI * 2, true);
     this.mapContext.fillStyle = this.dataStorage[i].sentimentColour;
-    this.mapContext.moveTo(xCoord, yCoord);
     this.mapContext.fill();
   }
 };
