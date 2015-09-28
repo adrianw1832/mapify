@@ -15,3 +15,7 @@ body {
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
 }
+
+p {
+  color: white;
+}
