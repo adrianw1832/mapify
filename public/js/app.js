@@ -16,16 +16,37 @@ $(document).ready(function() {
     mapContext.fillRect(0, 0, mapWidth, mapHeight);
   }
 
-  $('.searchBar').keypress(function(event) {
+  $('.searchTerm').keypress(function(event) {
     if (event.keyCode == 13) {
       $('.searchSubmit').click();
     }
   });
 
   $('.searchSubmit').click(function() {
-    $('.homepage').hide();
-    $('.tweetMap').show();
+
+    // $('.input-group').hide();
+
+    // $('.image').remove();
+
+    // $('body').fadeOut(300, function() {
+    //   $(this).css('background-color', 'black');
+    // });
+
+    // $('.tweetMap').show();
+
+    $('.image').fadeOut("slow", function() {
+      $(this).remove();
+    });
+
+    $('.input-group').hide("slow");
+
+    $('body').css('background-color', 'black');
+
+    $('.tweetMap').delay(500).fadeIn("slow");
+    $('.percentages').delay(500).fadeIn("slow");
+    // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
+
 
     // *** FOR HEROKU DEPLOYMENT *** //
     // $.getJSON('https://stormy-anchorage-2616.herokuapp.com/tweets/' + searchTerm, function(tweets) {
@@ -62,23 +83,28 @@ $(document).ready(function() {
     });
 
     $.getJSON('http://localhost:3000/tweets/' + searchTerm + '/percentages', function(percentageNumbers) {
-      $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-      $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-      $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+      if (percentageNumbers.totalTweets == 0) {
+        return
+      } else {
+        $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
+        $('.positive').html("Positive: " + percentageNumbers.positive + "%");
+        $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+      }
     })
   });
 
   drawMapBackground();
   $('.tweetMap').hide();
+  $('.percentages').hide();
 
   // FOR TESTING PLOTTING TWEETS
-  function testPlot() {
-    map.plotCoords(104, 1, "#FAFBFA");
-  }
+  // function testPlot() {
+  //   map.plotCoords(104, 1, "#FAFBFA");
+  // }
 
-  $('.testButton').click(function() {
-    testPlot();
-  });
+  // $('.testButton').click(function() {
+  //   testPlot();
+  // });
 
   // FOR TESTING IMAGES GETTING BASE64
   // setTimeout(function() {
