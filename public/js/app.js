@@ -11,6 +11,7 @@ $(document).ready(function() {
   var prodDeployURL = "https://mapifyapp.herokuapp.com/tweets/";
   var localhostTestURL = "http://localhost:3000/tweets/";
 
+
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
     mapCanvas.width = mapWidth;
@@ -48,6 +49,8 @@ $(document).ready(function() {
     $('.percentages').delay(500).fadeIn("slow");
     // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
+
+    $('.displaySearch').html('#' + searchTerm);
 
     $.getJSON(localhostTestURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
