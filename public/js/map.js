@@ -15,7 +15,7 @@ Map.prototype.plotTweet= function(tweet) {
 };
 
 Map.prototype.redrawTweets = function(width, height) {
-  this.mapContext.clearRect(0, 0, width, height);
+  this.mapContext.clearRect(0, 0, 2500, 2500);
   for (var i = 0; i < this.tweetArray.length; i++) {
     var xCoord = (this.tweetArray[i].coordinates[0]+ 180) * this.scalingFactor;
     var yCoord = (90 - this.tweetArray[i].coordinates[1]) * this.scalingFactor;

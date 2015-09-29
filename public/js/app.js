@@ -35,10 +35,12 @@ $(document).ready(function() {
     });
 
     $('body').css('background-color', 'black');
-    $('.tweetMap').delay(500).fadeIn("slow");
-    $('.percentages').delay(500).fadeIn("slow");
+    $('#nextPage').delay(500).fadeIn("slow");
+
 
     var searchTerm = $('.searchTerm').val();
+
+    $('#nextPage h2').html('#' + searchTerm);
 
     $.getJSON(prodDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
@@ -68,9 +70,7 @@ $(document).ready(function() {
   });
 
   drawMapBackground();
-  $('.tweetMap').hide();
-  $('.percentages').hide();
-
+  $('#nextPage').hide();
 
   trackTransforms(mapContext);
 
@@ -101,7 +101,7 @@ $(document).ready(function() {
 		if (!dragged) zoom(event.shiftKey ? -scaleFactor : scaleFactor );
 	},false);
 
-	var scaleFactor = 1.1;
+	var scaleFactor = 1.01;
 	var zoom = function(clicks){
 		var point = mapContext.transformedPoint(lastX,lastY);
 		mapContext.translate(point.x, point.y);
