@@ -8,14 +8,30 @@
 </head>
 <body>
 
-  <section class="homepage">
-    <input class="searchTerm" type="text" />
-    <input class="searchSubmit" type="submit" value="Enter" />
-  </section>
+  <header>
+    THIS IS WHERE THE IMAGE IS
+  </header>
 
-  <section class="tweetMap container col-md-11">
+  <div class="container col-md-8">
+    <div class="input-group">
+      <input class="searchTerm form-control" type="text" placeholder="Enter your search term here..." />
+      <span class="input-group-btn">
+        <button class="btn btn-primary searchSubmit">
+          <span>Enter</span>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <section class="tweetMap">
     <canvas class="mapCanvas"></canvas>
     <input class="testButton" type="submit" />
+  </section>
+
+  <section class="percentages">
+    <p class="neutral"></p>
+    <p class="positive"></p>
+    <p class="negative"></p>
   </section>
 
 </body>
