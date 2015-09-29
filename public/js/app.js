@@ -91,7 +91,6 @@ $(document).ready(function() {
   $('.tweetMap').hide();
   $('.percentages').hide();
 
-<<<<<<< HEAD
   trackTransforms(mapContext);
 
 	var lastX = mapCanvas.width / 2, lastY = mapCanvas.height / 2;
@@ -143,16 +142,6 @@ $(document).ready(function() {
 		var svg = document.createElementNS("http://www.w3.org/2000/svg",'svg');
 		var xform = svg.createSVGMatrix();
 		mapContext.getTransform = function(){ return xform; };
-=======
-  // FOR TESTING PLOTTING TWEETS
-  // function testPlot() {
-  //   map.plotCoords(104, 1, "#FAFBFA");
-  // }
-
-  // $('.testButton').click(function() {
-  //   testPlot();
-  // });
->>>>>>> 9ff6e5bd077f0f016c12a38410445a10c604a977
 
 		var translate = mapContext.translate;
 		mapContext.translate = function(dx,dy){
