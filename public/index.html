@@ -4,26 +4,31 @@
   <meta charset="UTF-8">
   <title>Mapify</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/normalize.css" />
   <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" />
 </head>
 <body>
 
-  <header class="jumbotron" >
-    <img src="images/beach.gif" alt="" />
-  </header>
 
+  <div class="container">
 
-  <div class="container col-md-8">
-    <div class="input-group">
-      <input class="searchTerm form-control" type="text" placeholder="Enter your search term here..." />
-      <span class="input-group-btn">
-        <button class="btn btn-primary searchSubmit">
-          <span>Search</span>
-        </button>
-      </span>
+    <div class="jumbotron">
+      <img src="images/beach.gif" alt="" />
     </div>
-  </div>
 
+    <div class="navbar navbar-default">
+      <div class="input-group">
+        <input class="searchTerm form-control" type="text" placeholder="Enter your search term here ..." />
+        <span class="input-group-btn">
+          <button class="btn btn-primary searchSubmit">
+            <span>Enter</span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+
+  </div>
 
   <section class="tweetMap">
     <canvas class="mapCanvas"></canvas>
@@ -34,6 +39,7 @@
     <p class="neutral"></p>
     <p class="positive"></p>
     <p class="negative"></p>
+    <p class="totalTweets"></p>
   </section>
 
 </body>
