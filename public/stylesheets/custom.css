@@ -7,16 +7,16 @@
 /*body {
   transition: background-color 1s ease;
 }
+*/
 
-
-.container {
-  padding: 50px;
+/*.container {
+  padding: 0px;
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
   margin-top: 248px;
-}
+}*/
 
-.container input {
+/*.container input {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -58,11 +58,12 @@ p:nth-child(3){
   z-index: 1;
 }*/
 
-div.jumbotron {
+div.container.image {
   background-color: white;
   margin: 0;
-  padding: 0;
-  transform: scale(1.1, 0.65);
+  padding: 0px;
+  width: 100%;
+  transform: scale(1, 0.5);
 }
 
 /*img {
@@ -79,7 +80,7 @@ div.jumbotron {
 
 img {
   width: 100%;
-  margin-bottom: -15%;
+  padding: 0;
 }
 
 div.container {
@@ -88,9 +89,14 @@ div.container {
   margin: 0;
 }
 
+div.navbar.navbar-default {
+  margin-top: -13.1%;
+}
+
 .navbar {
   background: rgba(0, 0, 0, 0.7);
   padding: 1%;
+  border-color: black;
 }
 
 
