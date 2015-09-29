@@ -51,7 +51,7 @@ div.container.img-responsive {
 
 img {
   width: 100%;
-  height: 600px;
+  height: 550px;
   padding: 0;
   -webkit-filter: grayscale;
   -webkit-filter: brightness(70%);
@@ -73,7 +73,7 @@ div.navbar.navbar-default {
 }
 
 #header {
-  position: fixed;
+  position: absolute;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -118,3 +118,20 @@ h4 {
   width: 140%;
 }
 
+h1 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Arapey', sans-serif;
+  font-style: italic;
+}
+
+
+/*---------------------------------------------------------------------------------
+MOBILE
+---------------------------------------------------------------------------------*/
+
+@media only screen and (max-height: 900px) {
+  h4 {
+    top: 30%;
+  }
+}
