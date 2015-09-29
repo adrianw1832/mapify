@@ -27,32 +27,23 @@ $(document).ready(function() {
 
   $('.searchSubmit').click(function() {
 
-    // $('.input-group').hide();
-
-    // $('.image').remove();
-
-    // $('body').fadeOut(300, function() {
-    //   $(this).css('background-color', 'black');
-    // });
-
-    // $('.tweetMap').show();
-
-    $('.image').fadeOut("slow", function() {
+    $('#header').fadeOut(500, function() {
       $(this).remove();
     });
 
-    $('.input-group').hide("slow");
+    $('.container').fadeOut(500, function() {
+      $(this).remove();
+    });
 
     $('body').css('background-color', 'black');
+    $('#nextPage').delay(500).fadeIn("slow");
 
-    $('.tweetMap').delay(500).fadeIn("slow");
-    $('.percentages').delay(500).fadeIn("slow");
-    // $('.tweetMap').show();
+
     var searchTerm = $('.searchTerm').val();
 
-    $('.displaySearch').html('#' + searchTerm);
+    $('#nextPage h2').html('#' + searchTerm);
 
-    $.getJSON(localhostTestURL + searchTerm, function(tweets) {
+    $.getJSON(prodDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -80,8 +71,7 @@ $(document).ready(function() {
   });
 
   drawMapBackground();
-  $('.tweetMap').hide();
-  $('.percentages').hide();
+  $('#nextPage').hide();
 
   trackTransforms(mapContext);
 
@@ -112,7 +102,7 @@ $(document).ready(function() {
 		if (!dragged) zoom(event.shiftKey ? -scaleFactor : scaleFactor );
 	},false);
 
-	var scaleFactor = 1.1;
+	var scaleFactor = 1.01;
 	var zoom = function(clicks){
 		var point = mapContext.transformedPoint(lastX,lastY);
 		mapContext.translate(point.x, point.y);
@@ -147,4 +137,5 @@ $(document).ready(function() {
 			return point.matrixTransform(xform.inverse());
 		};
 	}
+
 });

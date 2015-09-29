@@ -1,17 +1,10 @@
-.testButton {
-  background: transparent;
-  border: none !important;
-  font-size: 0;
+body {
+  transition: background-color 1s ease;
 }
 
-/*body {
-  background-color: black;
-}*/
-
-.container {
-  display: relative;
+div.input-group {
+  width: 50%;
   left: 50%;
-  top: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
 }
@@ -43,13 +36,109 @@ p:nth-child(3){
   color: #cd3f45;
 }
 
-
 canvas.mapCanvas {
   height: 100%;
   width: 100%;
   z-index: 1;
 }
 
-.image {
-  margin-bottom: 450px;
+div.container.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  background-color: white;
+  margin: 0;
+  padding: 0px;
+}
+
+img {
+  width: 100%;
+  height: 580px;
+  padding: 0;
+  -webkit-filter: grayscale;
+  -webkit-filter: brightness(65%);
+}
+
+div.container {
+  width: 100%;
+  padding: 0;
+}
+
+div.navbar.navbar-default {
+  margin: 0;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1%;
+  border-color: black;
+}
+
+#header {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#header span:nth-child(1) {
+  font-size: 30px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: white;
+  margin-left: 15px;
+}
+
+#header span:nth-child(2) {
+  font-size: 25px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: white;
+}
+
+.home-title {
+  width: 100%;
+}
+
+h2, h4 {
+  position: fixed;
+  top: 22%;
+  font-size: 50px;
+  color: white;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Yanone_Kaffeesatz', sans-serif;
+}
+
+h4 {
+  font-size: 15.6px;
+  top: 28%;
+}
+
+.btn-danger {
+  width: 140%;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Arapey', sans-serif;
+  font-style: italic;
+}
+
+#nextPage h2 {
+  top: 0%;
+  margin-top: 2%;
+  font-size: 28px;
+}
+
+/*---------------------------------------------------------------------------------
+MOBILE
+---------------------------------------------------------------------------------*/
+
+@media only screen and (max-height: 900px) {
+  h4 {
+    top: 30%;
+  }
 }
