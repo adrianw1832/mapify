@@ -93,13 +93,17 @@ div.navbar.navbar-default {
   color: white;
 }
 
+.home-title {
+  width: 100%;
+}
 
 h2 {
   position: fixed;
-  top: 23%;
-  left: 38%;
+  top: 22%;
   font-size: 50px;
   color: white;
   padding: 0;
   margin: 0;
+  width: 100%;
+  text-align: center;
 }
