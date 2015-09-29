@@ -8,7 +8,7 @@ $(document).ready(function() {
   var mapWidth = baseWidth * scalingFactor;
   var mapHeight = baseHeight * scalingFactor;
   var map = new Map(scalingFactor, mapContext);
-  var prodDeployURL = "https://stormy-anchorage-2616.herokuapp.com/tweets/";
+  var prodDeployURL = "https://mapifyapp.herokuapp.com/tweets/";
   var localDeployURL = "http://localhost:3000/tweets/";
 
   function drawMapBackground() {
@@ -49,7 +49,7 @@ $(document).ready(function() {
     // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
-    $.getJSON(localDeployURL + searchTerm, function(tweets) {
+    $.getJSON(prodDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -67,7 +67,7 @@ $(document).ready(function() {
     });
 
     function displayPercents() {
-      $.getJSON('http://localhost:3000/tweets/' + searchTerm + '/percentages', function(percentageNumbers) {
+      $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
         if (_arePercentagesNull(percentageNumbers) || _arePercentagesInRange(percentageNumbers)) {
           $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
           $('.positive').html("Positive: " + percentageNumbers.positive + "%");
