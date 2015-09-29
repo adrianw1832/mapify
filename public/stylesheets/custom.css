@@ -90,7 +90,7 @@ div.container {
 }
 
 div.navbar.navbar-default {
-  margin-top: -13.1%;
+  transform: scale(1, 1.7);
 }
 
 .navbar {
