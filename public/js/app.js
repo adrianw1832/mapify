@@ -9,7 +9,7 @@ $(document).ready(function() {
   var mapHeight = baseHeight * scalingFactor;
   var map = new Map(scalingFactor, mapContext);
   var prodDeployURL = "https://mapifyapp.herokuapp.com/tweets/";
-  var localDeployURL = "http://localhost:3000/tweets/";
+  var localhostTestURL = "http://localhost:3000/tweets/";
 
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
@@ -49,7 +49,7 @@ $(document).ready(function() {
     // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
-    $.getJSON(prodDeployURL + searchTerm, function(tweets) {
+    $.getJSON(localhostTestURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -67,7 +67,7 @@ $(document).ready(function() {
     });
 
     function displayPercents() {
-      $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
+      $.getJSON(localhostTestURL + searchTerm + '/percentages', function(percentageNumbers) {
         if (_arePercentagesNull(percentageNumbers) || _arePercentagesInRange(percentageNumbers)) {
           $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
           $('.positive').html("Positive: " + percentageNumbers.positive + "%");
