@@ -20,7 +20,7 @@ function queryCoords(req, res) {
       res.json(coords);
     }
   })
-  .limit(10000);
+  .limit(15000);
 }
 
 function queryPercentages(req, res) {
@@ -33,16 +33,11 @@ function queryPercentages(req, res) {
           percentages["negative"] = calPercentages(negativeCount);
           percentages["neutral"] = calPercentages(neutralCount);
           percentages["positive"] = calPercentages(positiveCount);
+          res.json(percentages);
 
-          if(percentages.totalMapTweets === percentages.totalTweets) {
-            res.json(percentages)
-          } else {
-            console.error("Total Map Tweets is: ", percentages.totalMapTweets)
-            console.error("totalTweets is: ", percentages.totalTweets)
-          }
-        }).limit(10000)
-      }).limit(10000)
-  }).limit(10000);
+        }).limit(20000)
+      }).limit(20000)
+  }).limit(20000);
 
   function calPercentages(count) {
     return Math.round((count.length / percentages.totalTweets) * 1000) / 10;
