@@ -4,26 +4,10 @@
   font-size: 0;
 }
 
-/*body {
+body {
   transition: background-color 1s ease;
 }
-*/
 
-/*.container {
-  padding: 0px;
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  margin-top: 248px;
-}*/
-
-/*.container input {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-}
-*/
 
 div.input-group {
   width: 50%;
@@ -52,11 +36,11 @@ p:nth-child(3){
 }
 
 
-/*canvas.mapCanvas {
+canvas.mapCanvas {
   height: 100%;
   width: 100%;
   z-index: 1;
-}*/
+}
 
 div.container.img-responsive {
   display: block;
@@ -69,18 +53,6 @@ div.container.img-responsive {
 }
 
 
-/*img {
-  display: relative;
-  width: 100%;
-  margin-bottom: -50%;
-}
-
-.navbar {
-  background: rgba(0, 0, 0, 0.7);
-  border-color: black;
-  height: 80%;
-}*/
-
 img {
   width: 100%;
   height: 550px;
@@ -92,7 +64,6 @@ img {
 div.container {
   width: 100%;
   padding: 0;
-  padding-top: 100px;
 }
 
 div.navbar.navbar-default {
