@@ -68,23 +68,11 @@ $(document).ready(function() {
 
     function displayPercents() {
       $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
-        if (_arePercentagesNull(percentageNumbers)) { //&& _arePercentagesInRange(percentageNumbers)) {
-          $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-          $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-          $('.negative').html("Negative: " + percentageNumbers.negative + "%");
-        }
-        else {
-          return console.error('Percentages are either null or do not add up to 100');
-        }
+        $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
+        $('.positive').html("Positive: " + percentageNumbers.positive + "%");
+        $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+        $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
       });
-      function _arePercentagesNull(percentageNumbers) {
-        return !(percentageNumbers.neutral === null || percentageNumbers.positive === null ||
-          percentageNumbers.negative === null);
-      }
-      // function _arePercentagesInRange(percentageNumbers) {
-      //   console.log((percentageNumbers.neutral + percentageNumbers.positive + percentageNumbers.negative).toFixed());
-      //   return percentageNumbers.neutral + percentageNumbers.positive + percentageNumbers.negative === 100;
-      // }
     }
   });
 
