@@ -16,11 +16,19 @@
   -webkit-transform: translateX(-50%);
 }
 
+.displaySearch {
+  text-align: center;
+  z-index: 1000;
+  position: relative;
+  color: white;
+  font-size: 25px;
+}
+
 p {
   text-align: center;
   z-index: 1000;
   position: relative;
-  bottom: 100px;
+  bottom: 125px;
 }
 
 p:nth-child(1){
