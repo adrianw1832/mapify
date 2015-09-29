@@ -16,7 +16,7 @@ function queryCoords(req, res) {
     if (err) {
       res.json({'ERROR': err});
     } else {
-      percentages["totalTweets"] = coords.length;
+      percentages["totalMapTweets"] = coords.length;
       res.json(coords);
     }
   })
@@ -25,17 +25,24 @@ function queryCoords(req, res) {
 
 function queryPercentages(req, res) {
   tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralCount) {
-    percentages["neutral"] = calPercentages(neutralCount);
 
       tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$gt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, positiveCount) {
-        percentages["positive"] = calPercentages(positiveCount);
 
         tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeCount) {
+          percentages['totalTweets'] = neutralCount.length + positiveCount.length + negativeCount.length;
           percentages["negative"] = calPercentages(negativeCount);
-          res.json(percentages);
+          percentages["neutral"] = calPercentages(neutralCount);
+          percentages["positive"] = calPercentages(positiveCount);
+
+          if(percentages.totalMapTweets === percentages.totalTweets) {
+            res.json(percentages)
+          } else {
+            console.error("Total Tweets not matching");
+          }
         }).limit(10000)
       }).limit(10000)
   }).limit(10000);
+
   function calPercentages(count) {
     return Math.round((count.length / percentages.totalTweets) * 1000) / 10;
   }
