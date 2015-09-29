@@ -16,30 +16,39 @@ function queryCoords(req, res) {
     if (err) {
       res.json({'ERROR': err});
     } else {
-      percentages["totalTweets"] = coords.length;
+      percentages["totalMapTweets"] = coords.length;
       res.json(coords);
     }
   })
-  .limit(10000);
+  .limit(15000);
 }
 
 function queryPercentages(req, res) {
-  tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralCount) {
-    percentages["neutral"] = calPercentages(neutralCount);
+  tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralTweets) {
 
-      tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$gt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, positiveCount) {
-        percentages["positive"] = calPercentages(positiveCount);
+      tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$gt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, positiveTweets) {
 
-        tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeCount) {
-          percentages["negative"] = calPercentages(negativeCount);
+        tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeTweets) {
+
+          _addTotalTweets(neutralTweets,negativeTweets,positiveTweets);
+          _calNeutralTweets(neutralTweets);
+          _calNegativeTweets(negativeTweets);
+          _calPositiveTweets(positiveTweets);
           res.json(percentages);
-        })
-      })
-  });
-  function calPercentages(count) {
+        }).limit(20000)
+      }).limit(20000)
+  }).limit(20000);
+
+  function _calPercentages(count) {
     return Math.round((count.length / percentages.totalTweets) * 1000) / 10;
   }
 
+  function _addTotalTweets(neutral,negative,positive) {
+    percentages['totalTweets'] = neutral.length + positive.length + negative.length;
+  }
+  function _calNeutralTweets(neutralTweets) { percentages["neutral"] = _calPercentages(neutralTweets) }
+  function _calNegativeTweets(negativeTweets) { percentages["negative"] = _calPercentages(negativeTweets) }
+  function _calPositiveTweets(positiveTweets) { percentages["positive"] = _calPercentages(positiveTweets) }
 
 };
 
