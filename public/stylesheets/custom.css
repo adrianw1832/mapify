@@ -97,7 +97,7 @@ div.navbar.navbar-default {
   width: 100%;
 }
 
-h2 {
+h2, h4 {
   position: fixed;
   top: 22%;
   font-size: 50px;
@@ -108,3 +108,9 @@ h2 {
   text-align: center;
   font-family: 'Yanone_Kaffeesatz', sans-serif;
 }
+
+h4 {
+  font-size: 15.6px;
+  top: 28%;
+}
+
