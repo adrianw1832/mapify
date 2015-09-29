@@ -103,7 +103,7 @@ $(document).ready(function() {
 		if (!dragged) zoom(event.shiftKey ? -scaleFactor : scaleFactor );
 	},false);
 
-	var scaleFactor = 1.1;
+	var scaleFactor = 1.01;
 	var zoom = function(clicks){
 		var point = mapContext.transformedPoint(lastX,lastY);
 		mapContext.translate(point.x, point.y);
