@@ -58,12 +58,13 @@ p:nth-child(3){
   z-index: 1;
 }*/
 
-div.container.image {
+div.container.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
   background-color: white;
   margin: 0;
   padding: 0px;
-  width: 100%;
-  transform: scale(1, 0.5);
 }
 
 /*img {
@@ -80,17 +81,17 @@ div.container.image {
 
 img {
   width: 100%;
+  height: 550px;
   padding: 0;
 }
 
 div.container {
   width: 100%;
   padding: 0;
-  margin: 0;
 }
 
 div.navbar.navbar-default {
-  transform: scale(1, 1.7);
+  margin: 0;
 }
 
 .navbar {
