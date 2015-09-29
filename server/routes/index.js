@@ -37,7 +37,8 @@ function queryPercentages(req, res) {
           if(percentages.totalMapTweets === percentages.totalTweets) {
             res.json(percentages)
           } else {
-            console.error("Total Tweets not matching");
+            console.error("Total Map Tweets is: ", percentages.totalMapTweets)
+            console.error("totalTweets is: ", percentages.totalTweets)
           }
         }).limit(10000)
       }).limit(10000)
