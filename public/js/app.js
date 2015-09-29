@@ -26,11 +26,14 @@ $(document).ready(function() {
 
   $('.searchSubmit').click(function() {
 
-    $('.image').fadeOut("slow", function() {
+    $('#header').fadeOut(500, function() {
       $(this).remove();
     });
-    $('header').remove();
-    $('.input-group').hide("slow");
+
+    $('.container').fadeOut(500, function() {
+      $(this).remove();
+    });
+
     $('body').css('background-color', 'black');
     $('.tweetMap').delay(500).fadeIn("slow");
     $('.percentages').delay(500).fadeIn("slow");
