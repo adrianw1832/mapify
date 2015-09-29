@@ -81,7 +81,10 @@ div.navbar.navbar-default {
 }
 
 #header span {
-  font-size: 20px;
+  font-size: 30px;
+/*  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: 'PT Sans Narrow', sans-serif;
   color: white;
-  text-align: left;
+  margin-left: 10px;
+/*  text-align: left;*/
 }
