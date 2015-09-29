@@ -49,7 +49,7 @@ $(document).ready(function() {
     // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
-    $.getJSON(prodDeployURL + searchTerm, function(tweets) {
+    $.getJSON(localhostTestURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -67,7 +67,7 @@ $(document).ready(function() {
     });
 
     function displayPercents() {
-      $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
+      $.getJSON(localhostTestURL + searchTerm + '/percentages', function(percentageNumbers) {
         $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
         $('.positive').html("Positive: " + percentageNumbers.positive + "%");
         $('.negative').html("Negative: " + percentageNumbers.negative + "%");
