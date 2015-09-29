@@ -8,7 +8,6 @@ body {
   transition: background-color 1s ease;
 }
 
-
 div.input-group {
   width: 50%;
   left: 50%;
@@ -35,7 +34,6 @@ p:nth-child(3){
   color: #cd3f45;
 }
 
-
 canvas.mapCanvas {
   height: 100%;
   width: 100%;
@@ -49,13 +47,11 @@ div.container.img-responsive {
   background-color: white;
   margin: 0;
   padding: 0px;
-
 }
-
 
 img {
   width: 100%;
-  height: 550px;
+  height: 600px;
   padding: 0;
   -webkit-filter: grayscale;
   -webkit-filter: brightness(70%);
@@ -67,7 +63,6 @@ div.container {
 }
 
 div.navbar.navbar-default {
-
   margin: 0;
 }
 
@@ -77,4 +72,16 @@ div.navbar.navbar-default {
   border-color: black;
 }
 
+#header {
+  position: fixed;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
 
+#header span {
+  font-size: 20px;
+  color: white;
+  text-align: left;
+}
