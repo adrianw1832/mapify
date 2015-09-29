@@ -49,7 +49,7 @@ $(document).ready(function() {
     // $('.tweetMap').show();
     var searchTerm = $('.searchTerm').val();
 
-    $.getJSON(localhostTestURL + searchTerm, function(tweets) {
+    $.getJSON(prodDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -67,8 +67,8 @@ $(document).ready(function() {
     });
 
     function displayPercents() {
-      $.getJSON(localhostTestURL + searchTerm + '/percentages', function(percentageNumbers) {
-        if (_arePercentagesNull(percentageNumbers) || _arePercentagesInRange(percentageNumbers)) {
+      $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
+        if (_arePercentagesNull(percentageNumbers)) { //&& _arePercentagesInRange(percentageNumbers)) {
           $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
           $('.positive').html("Positive: " + percentageNumbers.positive + "%");
           $('.negative').html("Negative: " + percentageNumbers.negative + "%");
@@ -81,9 +81,10 @@ $(document).ready(function() {
         return !(percentageNumbers.neutral === null || percentageNumbers.positive === null ||
           percentageNumbers.negative === null);
       }
-      function _arePercentagesInRange(percentageNumbers) {
-        return percentageNumbers.neutral + percentageNumbers.positive + percentageNumbers.negative == 100;
-      }
+      // function _arePercentagesInRange(percentageNumbers) {
+      //   console.log((percentageNumbers.neutral + percentageNumbers.positive + percentageNumbers.negative).toFixed());
+      //   return percentageNumbers.neutral + percentageNumbers.positive + percentageNumbers.negative === 100;
+      // }
     }
   });
 

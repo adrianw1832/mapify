@@ -33,9 +33,9 @@ function queryPercentages(req, res) {
         tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeCount) {
           percentages["negative"] = calPercentages(negativeCount);
           res.json(percentages);
-        })
-      })
-  });
+        }).limit(10000)
+      }).limit(10000)
+  }).limit(10000);
   function calPercentages(count) {
     return Math.round((count.length / percentages.totalTweets) * 1000) / 10;
   }
