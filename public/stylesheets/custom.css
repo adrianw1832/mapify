@@ -80,11 +80,26 @@ div.navbar.navbar-default {
   border: none;
 }
 
-#header span {
+#header span:nth-child(1) {
   font-size: 30px;
-/*  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-family: 'PT Sans Narrow', sans-serif;
   color: white;
-  margin-left: 10px;
-/*  text-align: left;*/
+  margin-left: 15px;
+}
+
+#header span:nth-child(2) {
+  font-size: 25px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: white;
+}
+
+
+h2 {
+  position: fixed;
+  top: 23%;
+  left: 38%;
+  font-size: 50px;
+  color: white;
+  padding: 0;
+  margin: 0;
 }
