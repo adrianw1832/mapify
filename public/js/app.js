@@ -11,6 +11,7 @@ $(document).ready(function() {
   var prodDeployURL = "https://mapifyapp.herokuapp.com/tweets/";
   var localhostTestURL = "http://localhost:3000/tweets/";
   var toggleMode = true;
+  var isFinishedPlotting = false;
 
 
   function drawMapBackground() {
@@ -62,6 +63,11 @@ $(document).ready(function() {
         }
       }
       setInterval(plotInBatches, 100);
+      isFinishedPlotting = false;
+      setTimeout(function() {
+        isFinishedPlotting = true;
+        toggleMode = true;
+      }, 5100);
       displayPercents(searchTerm);
     });
   };
@@ -76,12 +82,12 @@ $(document).ready(function() {
   }
 
   $(".hashtag").dblclick(function (event) {
-    if (toggleMode) {
+    if (toggleMode && isFinishedPlotting) {
+      toggleMode = false;
       event.stopPropagation();
       var textElement = $(this);
       var textValue = $(this).html();
       $('.editable').css('color', 'black');
-      toggleMode = false;
       updateVal(textElement, textValue);
     }
   });
@@ -96,8 +102,8 @@ $(document).ready(function() {
             $('.editable').css('color', 'white');
             var newSearchTerm = $('.editText').val();
             $(textElement).html(('#' + newSearchTerm).trim());
-            toggleMode = true;
             drawMapBackground();
+            map.tweetArray = [];
             $('.neutral').html('');
             $('.positive').html('');
             $('.negative').html('');
