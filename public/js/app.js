@@ -86,11 +86,19 @@ $(document).ready(function() {
 
 
   function updateVal(textElement, textValue) {
-    $(textElement).html('<input class="editText" type="text" value="' + textValue + '" />');
+    $(textElement).html('<input class="editText" type="text" minlength="1" value="' + textValue + '" />');
     $(".editText").focus();
+    $('.editText').keydown(function(event) {
+      var length = $('.editText').val().length
+      if (length == 1 && event.keyCode == 8) {
+        event.preventDefault();
+      }
+    });
     $(".editText").keyup(function (event) {
         if (event.keyCode == 13) {
             var newSearchTerm = $('.editText').val();
+            newSearchTerm = newSearchTerm.replace(newSearchTerm[0], '');
+            console.log(newSearchTerm);
             $(textElement).html($(".editText").val().trim());
             toggleMode = true;
             drawMapBackground();
