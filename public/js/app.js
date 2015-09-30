@@ -10,6 +10,7 @@ $(document).ready(function() {
   var map = new Map(scalingFactor, mapContext);
   var prodDeployURL = "https://mapifyapp.herokuapp.com/tweets/";
   var localhostTestURL = "http://localhost:3000/tweets/";
+  var toggleMode = true;
 
 
   function drawMapBackground() {
@@ -72,10 +73,13 @@ $(document).ready(function() {
 
 
   $(".hashtag").dblclick(function (event) {
+    if (toggleMode) {
       event.stopPropagation();
       var textElement = $(this);
       var textValue = $(this).html();
+      toggleMode = false;
       updateVal(textElement, textValue);
+    }
   });
 
 
@@ -85,6 +89,7 @@ $(document).ready(function() {
     $(".editText").keyup(function (event) {
         if (event.keyCode == 13) {
             $(textElement).html($(".editText").val().trim());
+            toggleMode = true;
         }
     });
   }
