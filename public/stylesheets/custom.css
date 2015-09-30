@@ -1,5 +1,6 @@
 body {
   transition: background-color 1s ease;
+  background-color: #D3D3D3;
 }
 
 div.input-group {
@@ -90,9 +91,19 @@ div.navbar.navbar-default {
 }
 
 #header span:nth-child(2) {
-  font-size: 25px;
+  font-size: 27px;
   font-family: 'PT Sans Narrow', sans-serif;
   color: white;
+  font-weight: bold;
+}
+
+.home-title h2 {
+  letter-spacing: -2px;
+}
+.home-title h4{
+  font-size: 16.5px;
+  letter-spacing: 1px;
+  padding-top:;
 }
 
 .home-title {
@@ -132,6 +143,11 @@ h1 {
   margin-top: 2%;
   font-size: 30px;
 }
+
+.quote {
+  margin-top: 50px ;
+}
+
 
 
 
