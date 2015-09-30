@@ -61,7 +61,7 @@ $(document).ready(function() {
     });
 
     function displayPercents() {
-      $.getJSON(localhostTestURL + searchTerm + '/percentages', function(percentageNumbers) {
+      $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
         $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
         $('.positive').html("Positive: " + percentageNumbers.positive + "%");
         $('.negative').html("Negative: " + percentageNumbers.negative + "%");

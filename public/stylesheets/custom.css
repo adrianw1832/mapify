@@ -130,8 +130,10 @@ h1 {
 #nextPage h2 {
   top: 0%;
   margin-top: 2%;
-  font-size: 28px;
+  font-size: 30px;
 }
+
+
 
 /*---------------------------------------------------------------------------------
 MOBILE
@@ -140,5 +142,11 @@ MOBILE
 @media only screen and (max-height: 900px) {
   h4 {
     top: 30%;
+  }
+}
+
+@media only screen and (max-height: 780px) {
+  img {
+    height: 450px;
   }
 }
