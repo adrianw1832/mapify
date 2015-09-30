@@ -70,6 +70,25 @@ $(document).ready(function() {
     }
   });
 
+
+  $(".hashtag").dblclick(function (event) {
+      event.stopPropagation();
+      var textElement = $(this);
+      var textValue = $(this).html();
+      updateVal(textElement, textValue);
+  });
+
+
+  function updateVal(textElement, textValue) {
+    $(textElement).html('<input class="editText" type="text" value="' + textValue + '" />');
+    $(".editText").focus();
+    $(".editText").keyup(function (event) {
+        if (event.keyCode == 13) {
+            $(textElement).html($(".editText").val().trim());
+        }
+    });
+  }
+
   drawMapBackground();
   $('#nextPage').hide();
 
