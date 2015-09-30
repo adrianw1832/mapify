@@ -78,18 +78,16 @@ $(document).ready(function() {
 
           $('.progress-bar-success').width(percentageNumbers.positive +'%');
 
-
-
           $('.progress-bar-warning').width(percentageNumbers.neutral +'%');
           $('.progress-bar-danger').width(percentageNumbers.negative +'%');
-
-          // console.log(_isAnyBelowFive(percentageNumbers.positive))
 
           if (!_isBelowFive(percentageNumbers.positive)) { $('.positive').html(percentageNumbers.positive + "%") };
           if (!_isBelowFive(percentageNumbers.neutral)) { $('.neutral').html(percentageNumbers.neutral + "%") };
           if (!_isBelowFive(percentageNumbers.negative)) { $('.negative').html(percentageNumbers.negative + "%") };
+          $('.totalTweets').html(percentageNumbers.totalTweets + ' Tweets');
 
         });
+
         function _isBelowFive(number) {
           return number < 5
         }
