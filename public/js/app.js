@@ -11,6 +11,7 @@ $(document).ready(function() {
   var prodDeployURL = "https://mapifyapp.herokuapp.com/tweets/";
   var localhostTestURL = "http://localhost:3000/tweets/";
 
+
   function drawMapBackground() {
     mapCanvas.height = mapHeight;
     mapCanvas.width = mapWidth;
@@ -36,7 +37,7 @@ $(document).ready(function() {
 
     $('body').css('background-color', 'black');
     $('#nextPage').delay(500).fadeIn("slow");
-    // $('.percentages').delay(500).fadeIn("slow");
+
 
     var searchTerm = $('.searchTerm').val();
 
@@ -70,8 +71,6 @@ $(document).ready(function() {
   });
 
   drawMapBackground();
-  // $('.tweetMap').hide();
-  // $('.percentages').hide();
   $('#nextPage').hide();
 
   trackTransforms(mapContext);
