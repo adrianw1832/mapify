@@ -12,10 +12,14 @@ router.get('/tweets/:searchTerm/percentages', queryPercentages)
 router.get('/tweets/:searchTerm', queryCoords);
 
 function queryCoords(req, res) {
-  tweetsDatabase.find( { $text: { $search: req.params.searchTerm } }, { coordinates: 1, sentimentColour:1, _id: 0 }, function(err, coords) {
+  var formatSearchTerm = "\\" + "\"" + req.params.searchTerm + "\\" + "\"";
+  console.log(typeof formatSearchTerm)
+
+  tweetsDatabase.find( { $text: { $search: '' } }, { coordinates: 1, sentimentColour:1, _id: 0 }, function(err, coords) {
     if (err) {
       res.json({'ERROR': err});
     } else {
+      console.log("Inside hardcoded: ", coords.length)
       percentages["totalMapTweets"] = coords.length;
       res.json(coords);
     }
@@ -24,16 +28,19 @@ function queryCoords(req, res) {
 }
 
 function queryPercentages(req, res) {
-  tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralTweets) {
+  var formatSearchTerm = "\\" + "\"" + req.params.searchTerm + "\\" + "\"";
+  console.log(formatSearchTerm)
 
-      tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$gt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, positiveTweets) {
+  tweetsDatabase.find( { $text: { $search: formatSearchTerm }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralTweets) {
+      tweetsDatabase.find( { $text: { $search: formatSearchTerm }, sentimentValue: {$gt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, positiveTweets) {
 
-        tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeTweets) {
+        tweetsDatabase.find( { $text: { $search: formatSearchTerm }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeTweets) {
 
           _addTotalTweets(neutralTweets,negativeTweets,positiveTweets);
           _calNeutralTweets(neutralTweets);
           _calNegativeTweets(negativeTweets);
           _calPositiveTweets(positiveTweets);
+          console.log("Total Tweets Inside queryPercentages: ", percentages.totalTweets)
           res.json(percentages);
         }).limit(20000)
       }).limit(20000)
