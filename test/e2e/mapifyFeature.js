@@ -6,6 +6,10 @@ describe('Mapify Feature', function() {
   var mapCanvas = element(by.className('mapCanvas'));
   var testButton = element(by.className('testButton'));
   var searchTerm = element(by.className('searchTerm'));
+  var searchSubmit = element(by.className('searchSubmit'));
+  var mapSearchTerm = element(by.className('mapSearchTerm'));
+
+
 
   beforeEach(function() {
     browser.get('http://localhost:3000');
@@ -34,6 +38,18 @@ describe('Mapify Feature', function() {
 
   it('has a search bar', function() {
     expect(searchTerm.isDisplayed()).toBeTruthy();
+  });
+
+  it('displays #searchTerm in the map', function() {
+    searchTerm.sendKeys('love');
+
+    searchSubmit.click();
+
+    var el = element(by.id('nextPage'));
+    browser.driver.wait(protractor.until.elementIsVisible(el), 1000).then(function(){
+        expect(mapSearchTerm.getText()).toEqual('#love');
+    });
+
   });
 
 });
