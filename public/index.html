@@ -15,40 +15,72 @@
 
 
   <div class="container">
-    <div class="img-responsive">
-      <img src="images/best_beach.jpg" alt="" />
-      <div class="home-title">
-        <h2>WELCOME</h2>
-        <h4>Get insights into people's sentiments in over 190+ countries.</h4>
-      </div>
-      <div class="navbar navbar-default">
-        <div class="input-group">
-          <input class="searchTerm form-control" type="text" placeholder="Enter your search term here ..." />
-          <span class="input-group-btn">
-            <button class="btn btn-danger searchSubmit">
-              <span>Enter</span>
-            </button>
-          </span>
+      <div class="img-responsive">
+        <img src="images/best_beach.jpg" alt="" />
+        <div class="home-title">
+          <h2>WELCOME</h2>
+          <h4>Get insights into people's sentiments in over 190+ countries.</h4>
+        </div>
+        <div class="navbar navbar-default">
+          <div class="input-group">
+            <input class="searchTerm form-control" type="text" placeholder="Enter your search term here ..." />
+            <span class="input-group-btn">
+              <button class="btn btn-danger searchSubmit">
+                <span>Enter</span>
+              </button>
+            </span>
+          </div>
         </div>
       </div>
+      <br />
+      <h1>"This is where we put more information to take up space"</h1>
     </div>
-    <br />
-    <h1>"This is where we put more information to take up space"</h1>
+  <div class="row">
+    <div id="nextPage">
+      <h2 class="mapSearchTerm"></h2>
   </div>
 
-  <div id="nextPage">
-    <h2 class="mapSearchTerm"></h2>
-
+  <div class="row">
     <section class="tweetMap">
       <canvas class="mapCanvas"></canvas>
     </section>
+  </div>
 
+  <!-- <div class="row">
     <section class="percentages">
       <p class="neutral"></p>
       <p class="positive"></p>
       <p class="negative"></p>
       <p class="totalTweets"></p>
     </section>
+  </div> -->
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    <section class="percentages">
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-custom" style="width:100%; background:black">
+        </div>
+
+        <div class="progress-bar progress-bar-success">
+          <p class="positive"></p>
+        </div>
+
+        <div class="progress-bar progress-bar-warning">
+          <p class="neutral"></p>
+        </div>
+
+        <div class="progress-bar progress-bar-danger">
+         <p class="negative"></p>
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+
+
   </div>
 
 

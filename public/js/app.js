@@ -62,10 +62,19 @@ $(document).ready(function() {
 
     function displayPercents() {
       $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
-        $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-        $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-        $('.negative').html("Negative: " + percentageNumbers.negative + "%");
-        $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
+        $('.progress-bar-custom').width(0);
+
+        $('.progress-bar-success').width(percentageNumbers.positive +'%');
+
+
+
+        $('.progress-bar-warning').width(percentageNumbers.neutral +'%');
+        $('.progress-bar-danger').width(percentageNumbers.negative +'%');
+
+        $('.positive').html(percentageNumbers.positive + "%");
+        $('.neutral').html(percentageNumbers.neutral + "%");
+        $('.negative').html(percentageNumbers.negative + "%");
+        // $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
       });
     }
   });

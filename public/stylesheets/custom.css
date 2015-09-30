@@ -17,7 +17,7 @@ div.input-group {
   font-size: 25px;
 }
 
-p {
+/*p {
   text-align: center;
   z-index: 1000;
   position: relative;
@@ -34,7 +34,7 @@ p:nth-child(2){
 
 p:nth-child(3){
   color: #cd3f45;
-}
+}*/
 
 canvas.mapCanvas {
   height: 100%;
@@ -133,6 +133,33 @@ h1 {
   font-size: 30px;
 }
 
+.progress {
+  z-index: 1000;
+  position: relative;
+  bottom: 60px;
+  background: rgba(0, 0, 0, 1);
+  border: 5px solid rgba(0, 0, 0, 1);
+  border-radius: 12px;
+  height: 40px;
+}
+
+.progress-bar-success {
+  color: #18bd4a;
+}
+
+.progress-bar-warning {
+  color: #e6cc68;
+}
+
+.progress-bar-danger {
+  color: #cd3f45;
+}
+
+p {
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 
 /*---------------------------------------------------------------------------------
