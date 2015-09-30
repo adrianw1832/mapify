@@ -67,7 +67,7 @@ $(document).ready(function() {
       setTimeout(function() {
         isFinishedPlotting = true;
         toggleMode = true;
-      }, 5100);
+      }, 100);
       displayPercents(searchTerm);
     });
   };

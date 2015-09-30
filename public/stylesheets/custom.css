@@ -107,7 +107,7 @@ div.navbar.navbar-default {
   width: 100%;
 }
 
-h2, h4, .editable {
+h2, h4 {
   position: fixed;
   top: 22%;
   font-size: 50px;
@@ -142,13 +142,18 @@ h1 {
 }
 
 
-.editable {
-  margin-left: -30px;
-  margin-top: 25px;
-}
 
 input.editText, textarea {
   background: rgba(0, 0, 0, 0.5);
+}
+
+input.editText {
+  border-radius: 15px;
+  outline: none;
+  padding-left: 20px;
+  font-family: 'Yanone_Kaffeesatz', sans-serif;
+  font-size: 25px;
+  border-color: grey;
 }
 
 .quote {
