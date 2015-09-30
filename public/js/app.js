@@ -26,24 +26,27 @@ $(document).ready(function() {
     }
   });
 
-  $('.searchSubmit').click(function() {
-
+  function fadingAnimations() {
     $('#header').fadeOut(500, function() {
       $(this).remove();
     });
-
     $('.container').fadeOut(500, function() {
       $(this).remove();
     });
-
     $('body').css('background-color', 'black');
     $('#nextPage').delay(500).fadeIn("slow");
+  };
 
 
+
+  $('.searchSubmit').click(function() {
+    fadingAnimations();
     var searchTerm = $('.searchTerm').val();
-
     $('#nextPage h2').html('#' + searchTerm);
+    displayTweetMap(searchTerm);
+  });
 
+  function displayTweetMap(searchTerm) {
     $.getJSON(prodDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
@@ -69,8 +72,7 @@ $(document).ready(function() {
         $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
       });
     }
-  });
-
+  };
 
   $(".hashtag").dblclick(function (event) {
     if (toggleMode) {
