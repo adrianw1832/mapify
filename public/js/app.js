@@ -73,13 +73,27 @@ $(document).ready(function() {
   };
 
   function displayPercents(searchTerm) {
-    $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
-      $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-      $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-      $('.negative').html("Negative: " + percentageNumbers.negative + "%");
-      $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
-    });
-  }
+        $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
+          $('.progress-bar-custom').width(0);
+
+          $('.progress-bar-success').width(percentageNumbers.positive +'%');
+
+
+
+          $('.progress-bar-warning').width(percentageNumbers.neutral +'%');
+          $('.progress-bar-danger').width(percentageNumbers.negative +'%');
+
+          // console.log(_isAnyBelowFive(percentageNumbers.positive))
+
+          if (!_isBelowFive(percentageNumbers.positive)) { $('.positive').html(percentageNumbers.positive + "%") };
+          if (!_isBelowFive(percentageNumbers.neutral)) { $('.neutral').html(percentageNumbers.neutral + "%") };
+          if (!_isBelowFive(percentageNumbers.negative)) { $('.negative').html(percentageNumbers.negative + "%") };
+
+        });
+        function _isBelowFive(number) {
+          return number < 5
+        }
+      }
 
   $(".hashtag").dblclick(function (event) {
     if (toggleMode && isFinishedPlotting) {
