@@ -61,18 +61,18 @@ $(document).ready(function() {
         }
       }
       setInterval(plotInBatches, 100);
-      displayPercents();
+      displayPercents(searchTerm);
     });
-
-    function displayPercents() {
-      $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
-        $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-        $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-        $('.negative').html("Negative: " + percentageNumbers.negative + "%");
-        $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
-      });
-    }
   };
+
+  function displayPercents(searchTerm) {
+    $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
+      $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
+      $('.positive').html("Positive: " + percentageNumbers.positive + "%");
+      $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+      $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
+    });
+  }
 
   $(".hashtag").dblclick(function (event) {
     if (toggleMode) {
@@ -90,8 +90,11 @@ $(document).ready(function() {
     $(".editText").focus();
     $(".editText").keyup(function (event) {
         if (event.keyCode == 13) {
+            var newSearchTerm = $('.editText').val();
             $(textElement).html($(".editText").val().trim());
             toggleMode = true;
+            drawMapBackground();
+            displayTweetMap(newSearchTerm);
         }
     });
   }
