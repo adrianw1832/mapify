@@ -1,5 +1,6 @@
 body {
   transition: background-color 1s ease;
+  background-color: #D3D3D3;
 }
 
 div.input-group {
@@ -90,9 +91,16 @@ div.navbar.navbar-default {
 }
 
 #header span:nth-child(2) {
-  font-size: 25px;
+  font-size: 27px;
   font-family: 'PT Sans Narrow', sans-serif;
   color: white;
+  font-weight: bold;
+}
+
+.home-title h4{
+  font-size: 16.5px;
+  letter-spacing: 1px;
+  padding-top:;
 }
 
 .home-title {
@@ -133,6 +141,7 @@ h1 {
   font-size: 30px;
 }
 
+
 .editable {
   margin-left: -30px;
   margin-top: 25px;
@@ -141,6 +150,12 @@ h1 {
 input.editText, textarea {
   background: rgba(0, 0, 0, 0.5);
 }
+
+.quote {
+  margin-top: 50px ;
+}
+
+
 
 
 /*---------------------------------------------------------------------------------
