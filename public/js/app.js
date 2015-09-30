@@ -44,6 +44,7 @@ $(document).ready(function() {
     var searchTerm = $('.searchTerm').val();
     $('#nextPage h2').html('#' + searchTerm);
     displayTweetMap(searchTerm);
+    displayPercents(searchTerm);
   });
 
   function displayTweetMap(searchTerm) {
@@ -79,6 +80,7 @@ $(document).ready(function() {
       event.stopPropagation();
       var textElement = $(this);
       var textValue = $(this).html();
+      $('.editable').css('color', 'black');
       toggleMode = false;
       updateVal(textElement, textValue);
     }
@@ -86,22 +88,20 @@ $(document).ready(function() {
 
 
   function updateVal(textElement, textValue) {
+    textValue = textValue.replace(textValue[0], '');
     $(textElement).html('<input class="editText" type="text" minlength="1" value="' + textValue + '" />');
     $(".editText").focus();
-    $('.editText').keydown(function(event) {
-      var length = $('.editText').val().length
-      if (length == 1 && event.keyCode == 8) {
-        event.preventDefault();
-      }
-    });
     $(".editText").keyup(function (event) {
         if (event.keyCode == 13) {
+            $('.editable').css('color', 'white');
             var newSearchTerm = $('.editText').val();
-            newSearchTerm = newSearchTerm.replace(newSearchTerm[0], '');
-            console.log(newSearchTerm);
-            $(textElement).html($(".editText").val().trim());
+            $(textElement).html(('#' + newSearchTerm).trim());
             toggleMode = true;
             drawMapBackground();
+            $('.neutral').html('');
+            $('.positive').html('');
+            $('.negative').html('');
+            $('.totalTweets').html('');
             displayTweetMap(newSearchTerm);
         }
     });

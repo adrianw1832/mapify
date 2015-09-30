@@ -99,7 +99,7 @@ div.navbar.navbar-default {
   width: 100%;
 }
 
-h2, h4 {
+h2, h4, .editable {
   position: fixed;
   top: 22%;
   font-size: 50px;
@@ -127,10 +127,15 @@ h1 {
   font-style: italic;
 }
 
-#nextPage h2 {
+#nextPage h2, .editable {
   top: 0%;
   margin-top: 2%;
   font-size: 30px;
+}
+
+.editable {
+  margin-left: -30px;
+  margin-top: 25px;
 }
 
 input.editText, textarea {
