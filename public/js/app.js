@@ -10,6 +10,8 @@ $(document).ready(function() {
   var map = new Map(scalingFactor, mapContext);
   var prodDeployURL = "https://mapifyapp.herokuapp.com/tweets/";
   var localhostTestURL = "http://localhost:3000/tweets/";
+  var toggleMode = true;
+  var isFinishedPlotting = false;
 
 
   function drawMapBackground() {
@@ -25,24 +27,28 @@ $(document).ready(function() {
     }
   });
 
-  $('.searchSubmit').click(function() {
-
+  function fadingAnimations() {
     $('#header').fadeOut(500, function() {
       $(this).remove();
     });
-
     $('.container').fadeOut(500, function() {
       $(this).remove();
     });
-
     $('body').css('background-color', 'black');
     $('#nextPage').delay(500).fadeIn("slow");
+  };
 
 
+
+  $('.searchSubmit').click(function() {
+    fadingAnimations();
     var searchTerm = $('.searchTerm').val();
-
     $('#nextPage h2').html('#' + searchTerm);
+    displayTweetMap(searchTerm);
+    displayPercents(searchTerm);
+  });
 
+  function displayTweetMap(searchTerm) {
     $.getJSON(prodDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
@@ -57,18 +63,55 @@ $(document).ready(function() {
         }
       }
       setInterval(plotInBatches, 100);
-      displayPercents();
+      isFinishedPlotting = false;
+      setTimeout(function() {
+        isFinishedPlotting = true;
+        toggleMode = true;
+      }, 5100);
+      displayPercents(searchTerm);
     });
+  };
 
-    function displayPercents() {
-      $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
-        $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
-        $('.positive').html("Positive: " + percentageNumbers.positive + "%");
-        $('.negative').html("Negative: " + percentageNumbers.negative + "%");
-        $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
-      });
+  function displayPercents(searchTerm) {
+    $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
+      $('.neutral').html("Neutral: " + percentageNumbers.neutral + "%");
+      $('.positive').html("Positive: " + percentageNumbers.positive + "%");
+      $('.negative').html("Negative: " + percentageNumbers.negative + "%");
+      $('.totalTweets').html("Tweets: " + percentageNumbers.totalTweets);
+    });
+  }
+
+  $(".hashtag").dblclick(function (event) {
+    if (toggleMode && isFinishedPlotting) {
+      toggleMode = false;
+      event.stopPropagation();
+      var textElement = $(this);
+      var textValue = $(this).html();
+      $('.editable').css('color', 'black');
+      updateVal(textElement, textValue);
     }
   });
+
+
+  function updateVal(textElement, textValue) {
+    textValue = textValue.replace(textValue[0], '');
+    $(textElement).html('<input class="editText" type="text" minlength="1" value="' + textValue + '" />');
+    $(".editText").focus();
+    $(".editText").keyup(function (event) {
+        if (event.keyCode == 13) {
+            $('.editable').css('color', 'white');
+            var newSearchTerm = $('.editText').val();
+            $(textElement).html(('#' + newSearchTerm).trim());
+            drawMapBackground();
+            map.tweetArray = [];
+            $('.neutral').html('');
+            $('.positive').html('');
+            $('.negative').html('');
+            $('.totalTweets').html('');
+            displayTweetMap(newSearchTerm);
+        }
+    });
+  }
 
   drawMapBackground();
   $('#nextPage').hide();
