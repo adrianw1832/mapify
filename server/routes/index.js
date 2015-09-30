@@ -12,7 +12,8 @@ router.get('/tweets/:searchTerm/percentages', queryPercentages)
 router.get('/tweets/:searchTerm', queryCoords);
 
 function queryCoords(req, res) {
-  tweetsDatabase.find( { $text: { $search: req.params.searchTerm } }, { coordinates: 1, sentimentColour:1, _id: 0 }, function(err, coords) {
+  var term = _formatSearchTerm(req.params.searchTerm);
+  tweetsDatabase.find( { $text: { $search: term } }, { coordinates: 1, sentimentColour:1, _id: 0 }, function(err, coords) {
     if (err) {
       res.json({'ERROR': err});
     } else {
@@ -24,11 +25,11 @@ function queryCoords(req, res) {
 }
 
 function queryPercentages(req, res) {
-  tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralTweets) {
+  var term = _formatSearchTerm(req.params.searchTerm);
+  tweetsDatabase.find( { $text: { $search: term }, sentimentValue: 0 }, { sentimentValue: 1, _id: 0 }, function(err, neutralTweets) {
+      tweetsDatabase.find( { $text: { $search: term }, sentimentValue: {$gt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, positiveTweets) {
 
-      tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$gt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, positiveTweets) {
-
-        tweetsDatabase.find( { $text: { $search: req.params.searchTerm }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeTweets) {
+        tweetsDatabase.find( { $text: { $search: term }, sentimentValue: {$lt: 0} }, { sentimentValue: 1, _id: 0 }, function(err, negativeTweets) {
 
           _addTotalTweets(neutralTweets,negativeTweets,positiveTweets);
           _calNeutralTweets(neutralTweets);
@@ -51,5 +52,9 @@ function queryPercentages(req, res) {
   function _calPositiveTweets(positiveTweets) { percentages["positive"] = _calPercentages(positiveTweets) }
 
 };
+
+function _formatSearchTerm(term) {
+  return "\"" + term + "\"";
+}
 
 module.exports = router;
