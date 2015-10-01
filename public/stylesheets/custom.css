@@ -24,7 +24,7 @@ input {
   font-size: 25px;
 }
 
-p {
+/*p {
   text-align: center;
   z-index: 1000;
   position: relative;
@@ -41,7 +41,7 @@ p:nth-child(2){
 
 p:nth-child(3){
   color: #cd3f45;
-}
+}*/
 
 canvas.mapCanvas {
   height: 100%;
@@ -112,7 +112,7 @@ div.navbar.navbar-default {
   width: 100%;
 }
 
-h2, h4, .editable {
+h2, h4 {
   position: fixed;
   top: 22%;
   font-size: 56px;
@@ -147,24 +147,62 @@ h1 {
 }
 
 
-.editable {
-  margin-left: -30px;
-  margin-top: 25px;
-}
 
 input.editText, textarea {
   background: rgba(0, 0, 0, 0.5);
+}
+
+input.editText {
+  border-radius: 15px;
+  outline: none;
+  padding-left: 20px;
+  font-family: 'Yanone_Kaffeesatz', sans-serif;
+  font-size: 25px;
+  border-color: grey;
 }
 
 .quote {
   margin-top: 100px ;
 }
 
+
 .projectName {
   letter-spacing: -1px;
 }
 
+.progress {
+  z-index: 1000;
+  position: relative;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 1);
+  border: 5px solid rgba(0, 0, 0, 1);
+  border-radius: 12px;
+  height: 40px;
+  opacity: 0.7;
+}
 
+.progress-bar-success {
+  color: #18bd4a;
+}
+
+.progress-bar-warning {
+  color: #e6cc68;
+}
+
+.progress-bar-danger {
+  color: #cd3f45;
+}
+
+p {
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.totalTweets {
+  width: 100%;
+  text-align: center;
+}
 
 
 /*---------------------------------------------------------------------------------
@@ -186,3 +224,21 @@ MOBILE
     height: 450px;
   }
 }
+
+/*@media only screen and (max-height: 1050px) {
+  img {
+    height: 430px;
+  }
+
+  .progress {
+    bottom: -50px;
+  }
+
+  #nextPage h2 {
+    margin-top: 5%;
+  }
+
+  .tweetMap {
+    margin-top: 7%;
+  }
+}*/
