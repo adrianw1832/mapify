@@ -161,7 +161,12 @@ input.editText {
   border: 5px solid rgba(0, 0, 0, 1);
   border-radius: 12px;
   height: 40px;
-  opacity: 0.7;
+  opacity: 0.9;
+}
+
+.progress-bar {
+  font-size: 15px;
+  line-height: 28px;
 }
 
 .progress-bar-success {
@@ -176,6 +181,11 @@ input.editText {
   color: #cd3f45;
 }
 
+.positive, .neutral, .negative {
+  color: white;
+  font-weight: bold;
+}
+
 p {
   color: #CECECE;
   display: inline-block;
@@ -184,7 +194,10 @@ p {
 
 .totalTweets {
   width: 100%;
+  font-size: 25px;
   text-align: center;
+  position: fixed;
+  margin-top: -80px;
 }
 
 

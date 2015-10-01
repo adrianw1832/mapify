@@ -49,7 +49,7 @@ $(document).ready(function() {
   });
 
   function displayTweetMap(searchTerm) {
-    $.getJSON(prodDeployURL + searchTerm, function(tweets) {
+    $.getJSON(localhostTestURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -74,7 +74,7 @@ $(document).ready(function() {
   };
 
   function displayPercents(searchTerm) {
-        $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
+        $.getJSON(localhostTestURL + searchTerm + '/percentages', function(percentageNumbers) {
           $('.progress-bar-custom').width(0);
 
           $('.progress-bar-success').width(percentageNumbers.positive +'%');
