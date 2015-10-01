@@ -45,7 +45,7 @@ img {
   height: 580px;
   padding: 0;
   -webkit-filter: grayscale;
-  -webkit-filter: brightness(65%);
+  -webkit-filter: brightness(80%);
 }
 
 div.container {
