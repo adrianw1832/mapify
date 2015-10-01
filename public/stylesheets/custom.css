@@ -9,6 +9,12 @@ div.input-group {
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
 }
+input {
+  text-align: center;
+  font-family: 'Yanone_Kaffeesatz', sans-serif;
+  font-size: 20px;
+
+}
 
 .displaySearch {
   text-align: center;
@@ -82,7 +88,7 @@ div.navbar.navbar-default {
   margin: 0;
   border: none;
 }
-
+/*
 #header span:nth-child(1) {
   font-size: 30px;
   font-family: 'PT Sans Narrow', sans-serif;
@@ -95,11 +101,10 @@ div.navbar.navbar-default {
   font-family: 'PT Sans Narrow', sans-serif;
   color: white;
   font-weight: bold;
-}
+}*/
 
 .home-title h4{
-  font-size: 16.5px;
-  letter-spacing: 1px;
+  font-size: 18.5px;
   padding-top:;
 }
 
@@ -110,7 +115,7 @@ div.navbar.navbar-default {
 h2, h4 {
   position: fixed;
   top: 22%;
-  font-size: 50px;
+  font-size: 56px;
   color: white;
   padding: 0;
   margin: 0;
@@ -158,6 +163,11 @@ input.editText {
 
 .quote {
   margin-top: 100px ;
+}
+
+
+.projectName {
+  letter-spacing: -1px;
 }
 
 .progress {
