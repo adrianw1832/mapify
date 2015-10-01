@@ -1,5 +1,6 @@
 body {
   transition: background-color 1s ease;
+ /* background-color: #D3D3D3;*/
 }
 
 div.input-group {
@@ -90,16 +91,23 @@ div.navbar.navbar-default {
 }
 
 #header span:nth-child(2) {
-  font-size: 25px;
+  font-size: 27px;
   font-family: 'PT Sans Narrow', sans-serif;
   color: white;
+  font-weight: bold;
+}
+
+.home-title h4{
+  font-size: 16.5px;
+  letter-spacing: 1px;
+  padding-top:;
 }
 
 .home-title {
   width: 100%;
 }
 
-h2, h4 {
+h2, h4, .editable {
   position: fixed;
   top: 22%;
   font-size: 50px;
@@ -127,7 +135,7 @@ h1 {
   font-style: italic;
 }
 
-#nextPage h2 {
+#nextPage h2, .editable {
   top: 0%;
   margin-top: 2%;
   font-size: 30px;
@@ -161,6 +169,21 @@ p {
   vertical-align: middle;
 }
 
+.editable {
+  margin-left: -30px;
+  margin-top: 25px;
+}
+
+input.editText, textarea {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.quote {
+  margin-top: 100px ;
+}
+
+
+
 
 /*---------------------------------------------------------------------------------
 MOBILE
@@ -170,9 +193,13 @@ MOBILE
   h4 {
     top: 30%;
   }
+
+  .quote {
+    margin-top: 50px;
+  }
 }
 
-@media only screen and (max-height: 780px) {
+@media only screen and (max-height: 850px) {
   img {
     height: 450px;
   }
