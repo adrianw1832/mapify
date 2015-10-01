@@ -44,8 +44,9 @@ img {
   width: 100%;
   height: 550px;
   padding: 0;
-  -webkit-filter: grayscale;
-  -webkit-filter: brightness(80%);
+  -webkit-filter: brightness(95%);
+
+  /*-webkit-filter: hue-rotate(15deg);*/
 }
 
 div.container {
@@ -85,10 +86,10 @@ div.navbar.navbar-default {
   font-weight: bold;
 }*/
 
-.home-title h4{
+/*.home-title h4{
   font-size: 20px;
-  padding-top: 12px;
-}
+  padding-top: 50px;
+}*/
 
 .home-title {
   width: 100%;
@@ -96,7 +97,7 @@ div.navbar.navbar-default {
 
 h2, h4 {
   position: fixed;
-  top: 22%;
+  top: 25%;
   font-size: 56px;
   color: white;
   padding: 0;
@@ -108,7 +109,7 @@ h2, h4 {
 
 h4 {
   font-size: 20px;
-  top: 27%;
+  top: 31.5%;
 }
 
 .btn-danger {
