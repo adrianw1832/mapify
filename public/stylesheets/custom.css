@@ -283,7 +283,7 @@ MOBILE
   }
 }
 
-@media only screen and (max-height: 1050px) {
+/*@media only screen and (max-height: 1050px) {
   img {
     height: 430px;
   }
@@ -299,4 +299,4 @@ MOBILE
   .tweetMap {
     margin-top: 7%;
   }
-}
+}*/
