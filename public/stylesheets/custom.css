@@ -1,6 +1,5 @@
 body {
   transition: background-color 1s ease;
- /* background-color: #D3D3D3;*/
 }
 
 div.input-group {
@@ -146,7 +145,7 @@ input.editText {
 }
 
 .quote {
-  margin-top: 100px ;
+  margin-top: 140px ;
 }
 
 
@@ -251,9 +250,13 @@ p {
 MOBILE
 ---------------------------------------------------------------------------------*/
 
-@media only screen and (max-height: 900px) {
+@media only screen and (max-height: 920px) {
+  h2 {
+    top: 27%;
+  }
+
   h4 {
-    top: 30%;
+    top: 36%;
   }
 
   .quote {
