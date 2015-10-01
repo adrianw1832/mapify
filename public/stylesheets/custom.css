@@ -1,6 +1,5 @@
 body {
   transition: background-color 1s ease;
- /* background-color: #D3D3D3;*/
 }
 
 div.input-group {
@@ -42,10 +41,11 @@ div.container.img-responsive {
 
 img {
   width: 100%;
-  height: 580px;
+  height: 550px;
   padding: 0;
-  -webkit-filter: grayscale;
-  -webkit-filter: brightness(80%);
+  -webkit-filter: brightness(95%);
+
+  /*-webkit-filter: hue-rotate(15deg);*/
 }
 
 div.container {
@@ -85,10 +85,10 @@ div.navbar.navbar-default {
   font-weight: bold;
 }*/
 
-.home-title h4{
-  font-size: 22px;
-  padding-top:;
-}
+/*.home-title h4{
+  font-size: 20px;
+  padding-top: 50px;
+}*/
 
 .home-title {
   width: 100%;
@@ -96,7 +96,7 @@ div.navbar.navbar-default {
 
 h2, h4 {
   position: fixed;
-  top: 22%;
+  top: 25%;
   font-size: 56px;
   color: white;
   padding: 0;
@@ -108,7 +108,7 @@ h2, h4 {
 
 h4 {
   font-size: 20px;
-  top: 29%;
+  top: 31.5%;
 }
 
 .btn-danger {
@@ -126,7 +126,7 @@ h1 {
   top: 0%;
   margin-top: 2%;
   font-size: 30px;
-  color: #8FC4E3;
+  color: #CECECE;
 }
 
 
@@ -145,14 +145,14 @@ input.editText {
 }
 
 .quote {
-  margin-top: 100px ;
+  margin-top: 140px ;
 }
 
 
-.projectName {
+/*.projectName {
   letter-spacing: -1px;
 }
-
+*/
 .progress {
   z-index: 1000;
   position: relative;
@@ -177,7 +177,7 @@ input.editText {
 }
 
 p {
-  color: white;
+  color: #CECECE;
   display: inline-block;
   vertical-align: middle;
 }
@@ -235,7 +235,7 @@ p {
 }
 
 .loadingMessage {
-  margin-top: -3%;
+  margin-top: -5%;
   position: fixed;
   width: 100%;
   text-align: center;
@@ -250,9 +250,13 @@ p {
 MOBILE
 ---------------------------------------------------------------------------------*/
 
-@media only screen and (max-height: 900px) {
+@media only screen and (max-height: 920px) {
+  h2 {
+    top: 27%;
+  }
+
   h4 {
-    top: 30%;
+    top: 36%;
   }
 
   .quote {
@@ -266,7 +270,7 @@ MOBILE
   }
 }
 
-/*@media only screen and (max-height: 1050px) {
+@media only screen and (max-height: 1050px) {
   img {
     height: 430px;
   }
@@ -282,4 +286,4 @@ MOBILE
   .tweetMap {
     margin-top: 7%;
   }
-}*/
+}
