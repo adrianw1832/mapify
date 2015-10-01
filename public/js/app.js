@@ -49,7 +49,7 @@ $(document).ready(function() {
   });
 
   function displayTweetMap(searchTerm) {
-    $.getJSON(localhostTestURL + searchTerm, function(tweets) {
+    $.getJSON(prodDeployURL + searchTerm, function(tweets) {
       var batchSize = tweets.length / 50;
       var startCounter = 0, endCounter = batchSize;
       function plotInBatches() {
@@ -62,6 +62,7 @@ $(document).ready(function() {
           endCounter += batchSize;
         }
       }
+      $('.loading').hide();
       setInterval(plotInBatches, 100);
       isFinishedPlotting = false;
       setTimeout(function() {
@@ -73,7 +74,7 @@ $(document).ready(function() {
   };
 
   function displayPercents(searchTerm) {
-        $.getJSON(localhostTestURL + searchTerm + '/percentages', function(percentageNumbers) {
+        $.getJSON(prodDeployURL + searchTerm + '/percentages', function(percentageNumbers) {
           $('.progress-bar-custom').width(0);
 
           $('.progress-bar-success').width(percentageNumbers.positive +'%');
@@ -111,6 +112,7 @@ $(document).ready(function() {
     $(".editText").focus();
     $(".editText").keyup(function (event) {
         if (event.keyCode == 13) {
+            $('.loading').show();
             $('.editable').css('color', 'white');
             var newSearchTerm = $('.editText').val();
             $(textElement).html(('#' + newSearchTerm).trim());
