@@ -75,17 +75,25 @@ $(document).ready(function() {
 
   function displayPercents(searchTerm) {
         $.getJSON(localhostTestURL + searchTerm + '/percentages', function(percentageNumbers) {
-          $('.progress-bar-custom').width(0);
+            $('.progress-bar-custom').width(0);
 
-          $('.progress-bar-success').width(percentageNumbers.positive +'%');
+            $('.progress-bar-success').width(percentageNumbers.positive +'%');
 
-          $('.progress-bar-warning').width(percentageNumbers.neutral +'%');
-          $('.progress-bar-danger').width(percentageNumbers.negative +'%');
+            $('.progress-bar-warning').width(percentageNumbers.neutral +'%');
+
+            $('.progress-bar-danger').width(percentageNumbers.negative +'%');
+
 
           if (!_isBelowFive(percentageNumbers.positive)) { $('.positive').html(percentageNumbers.positive + "%") };
           if (!_isBelowFive(percentageNumbers.neutral)) { $('.neutral').html(percentageNumbers.neutral + "%") };
           if (!_isBelowFive(percentageNumbers.negative)) { $('.negative').html(percentageNumbers.negative + "%") };
           $('.totalTweets').html(percentageNumbers.totalTweets + ' Tweets');
+
+          if (percentageNumbers.totalTweets == 0) {
+            $('.progress').hide();
+          } else {
+            $('.progress').show();
+          }
 
         });
 
