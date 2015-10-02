@@ -18,6 +18,7 @@ var stream = T.stream('statuses/filter', {
 function streamOn() {
   stream.on('tweet', function (tweet) {
     if (tweet.geo !== null) {
+      // console.log(tweet)
       var sentimentValue = sentimentCalculator.calculate(formatTweet.format(tweet));
       var newTweet = new TweetModel({
         createdAt:    tweet.created_at,
