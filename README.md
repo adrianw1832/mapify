@@ -1,37 +1,23 @@
 Mapify App
 -
-This web application calculates the sentiment of tweets. Based on the value obtained, it displays their coordinates on a world canvas in three different colors: green (positive), red (negative), yellow/orange (neutral).
+This web application calculates the sentiment of tweets. Based on the value obtained, it displays them on world canvas in red, green or yellow.
 
-Features
+ Features
 -----
-
- Zoom In/Out of canvas
- Sentiment Calculator
- Geo-location Scale
- Twitter API Stream
-
-This project used Twitter's API
-
-Deployed using Heroku
-
+ - Zoom In/Out of canvas
+ - Sentiment Calculator
+ - Geo-location Scale
+ - Twitter API Stream
 
 Installation
 --
-Ensure that _mongo_ is installed on your machine. [Instructions here](http://docs.mongodb.org/v2.4/tutorial/install-mongodb-on-os-x/)
-
-Seed your local mongo database with some data in the backup folder
-
-Required Tokens to do so :
->TWITTER_ACCESS_TOKEN
-TWITTER_ACCESS_TOKEN_SECRET
-TWITTER_API_KEY
-TWITTER_API_SECRET
+Ensure that _mongo_ is installed on your machine and seed it with some data. [Instructions here](http://docs.mongodb.org/v2.4/tutorial/install-mongodb-on-os-x/)
 
 Run `npm install` for all the dependencies.
 
-Run `npm start`
-
 Node is set up to use an environment variable _PORT_ , so you'd need to export it like: ` echo export "PORT=3000" >> ~/.bash_profile`
+
+Run `npm start`
 
 
 Cross-Origin Resources (CORS)
@@ -43,10 +29,9 @@ Follow this excellent [MDN article](https://developer.mozilla.org/en-US/docs/Web
 Another work-around that solves this problem:
 
  1. Download and Install an _Allow-Control-Allow-Origin_ [Chrome Add-on](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US)
- 2. Enable Cross-origin resource sharing everytime you run
+ 2. Enable Cross-origin resource sharing every time application data is served through CDN and running from local.
 
 ----------
-
 
 Contributing
 -
