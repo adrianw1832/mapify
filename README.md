@@ -2,7 +2,7 @@ Mapify App
 -
 This web application calculates the sentiment of tweets. Based on the value obtained, it displays them on world canvas in red, green or yellow.
 
-Live version demo here mapifyapp.herokuapp.com
+Live Version deployed with Heroku and MongoLab [here](mapifyapp.herokuapp.com)
 
  Features
 -----
