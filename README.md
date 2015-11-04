@@ -1,6 +1,11 @@
 Mapify App
 -
-This web application calculates the sentiment of tweets. Based on the value obtained, it displays them on world canvas in red, green or yellow.
+This is the final project from the final two weeks of the Makers Academy course.
+
+This web application plots all the tweets based on the user's search term. It
+plots them based on the location where the tweet came from and it also
+calculates the sentiment of the tweets. Based on the value obtained, it displays
+them on the canvas in red, green or yellow colour.
 
 Live Version deployed with Heroku and MongoLab [here](https://mapifyapp.herokuapp.com/)
 
@@ -32,6 +37,12 @@ Another work-around that solves this problem:
 
  1. Download and Install an _Allow-Control-Allow-Origin_ [Chrome Add-on](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US)
  2. Enable Cross-origin resource sharing every time application data is served through CDN and running from local.
+
+Technologies used
+--
+Javascript, jQuery, Mongo, Express, Node, HTML5 Canvas
+
+Jasmine, Mocha/ Chai
 
 ----------
 
